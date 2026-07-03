@@ -6,23 +6,23 @@ Development roadmap from zero to release.
 
 ## Phase 0: Project Setup
 
-- [ ] Init git repository
-- [ ] Create folder structure sesuai PRD §21
-- [ ] Init Bun project (`bun init`)
-- [ ] Install dependencies:
-  - [ ] `commander` — CLI framework
-  - [ ] `zod` — validation
-  - [ ] `execa` — process execution
-  - [ ] `fast-glob` — file scanning
-- [ ] Install dev dependencies:
-  - [ ] `vitest` — testing
-  - [ ] `typescript` — type safety
-  - [ ] `@types/bun` — Bun types
-- [ ] Setup `tsconfig.json`
-- [ ] Setup `vitest.config.ts`
+- [x] Init git repository
+- [x] Create folder structure sesuai PRD §21
+- [x] Init Bun project (`bun init`)
+- [x] Install dependencies:
+  - [x] `commander` — CLI framework
+  - [x] `zod` — validation
+  - [x] `execa` — process execution
+  - [x] `fast-glob` — file scanning
+- [x] Install dev dependencies:
+  - [x] `vitest` — testing
+  - [x] `typescript` — type safety
+  - [x] `@types/bun` — Bun types
+- [x] Setup `tsconfig.json`
+- [x] Setup `vitest.config.ts`
 - [ ] Setup ESLint + Prettier (optional)
-- [ ] Setup `.gitignore`
-- [ ] Setup GitHub Actions CI (basic lint + test)
+- [x] Setup `.gitignore`
+- [x] Setup GitHub Actions CI (basic lint + test)
 
 ---
 
