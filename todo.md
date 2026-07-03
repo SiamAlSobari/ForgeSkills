@@ -32,59 +32,59 @@ Buat komponen yang digunakan semua skill.
 
 ### 1.1 Repository Analyzer (`shared/analyzer/`)
 
-- [ ] Implement `repository.ts`
-  - [ ] Detect repository type (git, local, workspace)
-  - [ ] Scan directory structure
-  - [ ] Identify key directories (src, lib, app, etc.)
-- [ ] Implement `language.ts`
-  - [ ] Map file extensions to languages
-  - [ ] Calculate language distribution
-  - [ ] Return primary + secondary languages
-- [ ] Implement `framework.ts`
-  - [ ] Detect from config files
-  - [ ] Detect from dependencies
-  - [ ] Return framework + version
-- [ ] Implement `structure.ts`
-  - [ ] Parse monorepo structure
-  - [ ] Identify packages/apps/services
-  - [ ] Map module boundaries
-- [ ] Implement `config.ts`
-  - [ ] Find configuration files
-  - [ ] Parse common formats (JSON, YAML, TOML, ENV)
-  - [ ] Extract relevant settings
+- [x] Implement `repository.ts`
+  - [x] Detect repository type (git, local, workspace)
+  - [x] Scan directory structure
+  - [x] Identify key directories (src, lib, app, etc.)
+- [x] Implement `language.ts`
+  - [x] Map file extensions to languages
+  - [x] Calculate language distribution
+  - [x] Return primary + secondary languages
+- [x] Implement `framework.ts`
+  - [x] Detect from config files
+  - [x] Detect from dependencies
+  - [x] Return framework + version
+- [x] Implement `structure.ts`
+  - [x] Parse monorepo structure
+  - [x] Identify packages/apps/services
+  - [x] Map module boundaries
+- [x] Implement `config.ts`
+  - [x] Find configuration files
+  - [x] Parse common formats (JSON, YAML, TOML, ENV)
+  - [x] Extract relevant settings
 
 ### 1.2 Findings Engine (`shared/findings/`)
 
-- [ ] Implement `types.ts`
-  - [ ] Finding interface
-  - [ ] Severity enum (Critical, High, Medium, Low, Info)
-  - [ ] Confidence level
-  - [ ] Evidence type
-- [ ] Implement `classifier.ts`
-  - [ ] Auto-classify severity based on issue type
-  - [ ] Adjust severity based on context
-  - [ ] Calculate confidence score
-- [ ] Implement `prioritizer.ts`
-  - [ ] Sort by severity
-  - [ ] Group by category
-  - [ ] Deduplicate findings
+- [x] Implement `types.ts`
+  - [x] Finding interface
+  - [x] Severity enum (Critical, High, Medium, Low, Info)
+  - [x] Confidence level
+  - [x] Evidence type
+- [x] Implement `classifier.ts`
+  - [x] Auto-classify severity based on issue type
+  - [x] Adjust severity based on context
+  - [x] Calculate confidence score
+- [x] Implement `prioritizer.ts`
+  - [x] Sort by severity
+  - [x] Group by category
+  - [x] Deduplicate findings
 
 ### 1.3 Report Generator (`shared/report/`)
 
-- [ ] Implement `score.ts`
-  - [ ] Calculate Score (0-100)
-  - [ ] Weight by severity
-  - [ ] Normalize across project size
-- [ ] Implement `markdown.ts`
-  - [ ] Generate markdown report
-  - [ ] Include all standard sections
-  - [ ] Add code snippets for findings
-  - [ ] Add fix suggestions
-- [ ] Implement `json.ts`
-  - [ ] Generate JSON report
-  - [ ] Machine-readable format
-  - [ ] Include metadata
-- [ ] Create `templates/report.md` — markdown template
+- [x] Implement `score.ts`
+  - [x] Calculate Score (0-100)
+  - [x] Weight by severity
+  - [x] Normalize across project size
+- [x] Implement `markdown.ts`
+  - [x] Generate markdown report
+  - [x] Include all standard sections
+  - [x] Add code snippets for findings
+  - [x] Add fix suggestions
+- [x] Implement `json.ts`
+  - [x] Generate JSON report
+  - [x] Machine-readable format
+  - [x] Include metadata
+- [x] Create `templates/report.md` — markdown template
 
 ---
 
