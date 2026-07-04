@@ -1,6 +1,6 @@
 {
   "name": "@yammd/skillforge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Global AI Skills Ecosystem for code review and audit",
   "bin": {
     "skillforge": "bin/skillforge"
