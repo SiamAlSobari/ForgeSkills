@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, cpSync, readFileSync } from "fs";
+import { existsSync, mkdirSync, cpSync, writeFileSync, readdirSync } from "fs";
 import { join, resolve } from "path";
 import { homedir } from "os";
 
@@ -10,62 +10,105 @@ interface InstallOptions {
 }
 
 const AGENT_FOLDERS: Record<AgentType, string> = {
-  opencode: ".config/opencode/skills",
-  claude: ".claude/skills",
+  opencode: ".config/opencode",
+  claude: ".claude",
 };
 
-function getTargetFolder(agent: AgentType, customPath?: string): string {
+function getTargetBase(agent: AgentType, customPath?: string): string {
   if (customPath) {
     return resolve(customPath);
   }
-
-  const home = homedir();
-  const folder = AGENT_FOLDERS[agent];
-  return join(home, folder);
+  return join(homedir(), AGENT_FOLDERS[agent]);
 }
 
-function getSourceSkills(): string {
-  return resolve(__dirname, "../../skills");
+function getSourceDir(): string {
+  return resolve(__dirname, "../..");
 }
 
 function copySkills(source: string, target: string): void {
-  if (!existsSync(target)) {
-    mkdirSync(target, { recursive: true });
+  const skillsSource = join(source, "skills");
+  const skillsTarget = join(target, "skills");
+
+  if (!existsSync(skillsTarget)) {
+    mkdirSync(skillsTarget, { recursive: true });
   }
 
-  cpSync(source, target, { recursive: true });
+  cpSync(skillsSource, skillsTarget, { recursive: true });
 }
 
-function getInstalledSkills(target: string): string[] {
-  if (!existsSync(target)) return [];
+const SKILL_COMMANDS: Record<string, string> = {
+  "security-audit": "Security review of source code - detect vulnerabilities, secrets, config issues",
+  "bug-investigate": "Investigate bugs automatically - error logs, code paths, root cause analysis",
+  "performance-audit": "Audit application performance - queries, memory, algorithms, caching",
+  "architecture-review": "Review project architecture - patterns, separation, modularity, SOLID",
+  "dependency-review": "Review dependencies - outdated, unused, licenses, supply chain risks",
+  "database-review": "Review database usage - queries, indexing, schema, migrations",
+  "release-check": "Pre-release checklist - changelog, version, CI/CD, breaking changes",
+};
 
-  const { readdirSync } = require("fs");
-  const entries = readdirSync(target, { withFileTypes: true });
-  return entries
-    .filter((e: any) => e.isDirectory() && !e.name.startsWith("."))
-    .map((e: any) => e.name);
+function createCommandFiles(source: string, target: string): void {
+  const commandsDir = join(target, "commands");
+  const skillsDir = join(source, "skills");
+
+  if (!existsSync(commandsDir)) {
+    mkdirSync(commandsDir, { recursive: true });
+  }
+
+  const skills = readdirSync(skillsDir, { withFileTypes: true })
+    .filter((e) => e.isDirectory())
+    .map((e) => e.name);
+
+  for (const skill of skills) {
+    const skillMdPath = join(skillsDir, skill, "SKILL.md");
+    if (!existsSync(skillMdPath)) continue;
+
+    const skillContent = require("fs").readFileSync(skillMdPath, "utf-8");
+    const description = SKILL_COMMANDS[skill] || skill;
+
+    const commandContent = `---
+description: ${description}
+---
+${skillContent}
+
+Arguments: $ARGUMENTS
+If path provided, scan that directory. Otherwise scan current directory.
+`;
+
+    writeFileSync(join(commandsDir, `${skill}.md`), commandContent);
+  }
+}
+
+function getInstalledItems(target: string): string[] {
+  if (!existsSync(target)) return [];
+  return readdirSync(target, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+    .map((e) => e.name);
 }
 
 export function runInstall(options: InstallOptions): void {
   const agent = options.agent || "opencode";
-  const target = getTargetFolder(agent, options.path);
-  const source = getSourceSkills();
+  const targetBase = getTargetBase(agent, options.path);
+  const source = getSourceDir();
 
   console.log(`\n🔧 SkillForge Installer\n`);
   console.log(`Target: ${agent}`);
-  console.log(`Folder: ${target}\n`);
+  console.log(`Folder: ${targetBase}\n`);
 
-  // Check source exists
   if (!existsSync(source)) {
     console.error("❌ Skills folder not found. Are you running from the SkillForge directory?");
     process.exit(1);
   }
 
-  // Copy skills
   try {
-    copySkills(source, target);
+    // Copy skills
+    copySkills(source, targetBase);
 
-    const installed = getInstalledSkills(target);
+    // Create command files (for OpenCode)
+    if (agent === "opencode") {
+      createCommandFiles(source, targetBase);
+    }
+
+    const installed = getInstalledItems(join(targetBase, "skills"));
 
     console.log(`✅ Skills installed successfully!\n`);
     console.log(`Installed skills:`);
