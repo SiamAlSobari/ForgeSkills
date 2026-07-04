@@ -475,11 +475,16 @@ Buat komponen yang digunakan semua skill.
 
 ## Phase 13: Polish & Release v1.0
 
-- [ ] Code review & cleanup
-- [ ] Performance optimization
-- [ ] Error handling improvements
+- [x] Code review & cleanup
+- [x] Performance optimization
+- [x] Error handling improvements
 - [ ] Add logging (optional)
-- [ ] Version bump (v1.0.0)
+- [x] Add install command:
+  - [x] `skillforge install --opencode`
+  - [x] `skillforge install --claude`
+  - [x] Auto-detect target folder
+  - [x] Copy skills to correct location
+- [x] Version bump (v1.0.0)
 - [ ] Create GitHub release
 - [ ] Write release notes
 - [ ] Publish to npm (optional)

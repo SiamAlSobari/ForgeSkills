@@ -6,7 +6,20 @@ const program = new Command();
 program
   .name("skillforge")
   .description("Global AI Skills Ecosystem for code review and audit")
-  .version("0.1.0");
+  .version("1.0.0");
+
+// Install command
+program
+  .command("install")
+  .description("Install SkillForge skills to AI agent")
+  .option("--opencode", "Install to OpenCode", false)
+  .option("--claude", "Install to Claude Code", false)
+  .option("--path <path>", "Custom installation path")
+  .action(async (opts) => {
+    const agent = opts.opencode ? "opencode" : opts.claude ? "claude" : "opencode";
+    const { runInstall } = await import("./install.js");
+    runInstall({ agent, path: opts.path });
+  });
 
 // Common options schema
 const commonOptions = z.object({
