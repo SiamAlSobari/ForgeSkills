@@ -1,3 +1,10 @@
+---
+name: database-review
+description: >
+  Review database usage - queries, indexing, schema, migrations.
+  Trigger when user types /database-review or requests a database review.
+---
+
 # /database-review
 
 Review database usage and queries using AI reasoning.

@@ -1,3 +1,10 @@
+---
+name: release-check
+description: >
+  Pre-release checklist - changelog, version, CI/CD, breaking changes.
+  Trigger when user types /release-check or requests a pre-release check.
+---
+
 # /release-check
 
 Pre-release checklist using AI reasoning.

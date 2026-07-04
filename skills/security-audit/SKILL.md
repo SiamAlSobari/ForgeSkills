@@ -1,3 +1,10 @@
+---
+name: security-audit
+description: >
+  Security review of source code - detect vulnerabilities (SQL injection, XSS, CSRF, SSRF, RCE), secrets, config issues.
+  Trigger when user types /security-audit or requests a security audit/review.
+---
+
 # /security-audit
 
 Security review of source code using AI reasoning.

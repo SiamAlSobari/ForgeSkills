@@ -1,3 +1,10 @@
+---
+name: architecture-review
+description: >
+  Review project architecture - patterns, separation, modularity, SOLID.
+  Trigger when user types /architecture-review or requests an architecture review.
+---
+
 # /architecture-review
 
 Review project architecture using AI reasoning.

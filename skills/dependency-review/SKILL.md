@@ -1,3 +1,10 @@
+---
+name: dependency-review
+description: >
+  Review project dependencies - outdated, unused, licenses, supply chain risks.
+  Trigger when user types /dependency-review or requests a dependency review.
+---
+
 # /dependency-review
 
 Review project dependencies using AI reasoning.

@@ -1,3 +1,10 @@
+---
+name: performance-audit
+description: >
+  Audit application performance - queries, memory, algorithms, caching, resources.
+  Trigger when user types /performance-audit or requests a performance audit/review.
+---
+
 # /performance-audit
 
 Audit application performance using AI reasoning.

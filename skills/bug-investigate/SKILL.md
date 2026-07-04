@@ -1,3 +1,10 @@
+---
+name: bug-investigate
+description: >
+  Investigate bugs automatically - error logs, code paths, root cause analysis, edge cases.
+  Trigger when user types /bug-investigate or requests bug investigation/debugging.
+---
+
 # /bug-investigate
 
 Investigate bugs automatically using AI reasoning.
