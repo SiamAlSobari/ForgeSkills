@@ -164,37 +164,37 @@ Buat komponen yang digunakan semua skill.
 
 ### 4.1 SKILL.md
 
-- [ ] Create `skills/bug-investigate/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/bug-investigate/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 4.2 Prompts
 
-- [ ] Write prompt: Error Log Analysis
-  - [ ] Parse stack traces
-  - [ ] Identify error patterns
-  - [ ] Extract context
-- [ ] Write prompt: Code Path Tracing
-  - [ ] Trace function calls
-  - [ ] Identify entry points
-  - [ ] Map data flow
-- [ ] Write prompt: Root Cause Analysis
-  - [ ] Identify potential causes
-  - [ ] Rank by likelihood
-  - [ ] Provide evidence
-- [ ] Write prompt: Edge Case Detection
-  - [ ] Null/undefined handling
-  - [ ] Boundary conditions
-  - [ ] Race conditions
-  - [ ] Memory leaks
+- [x] Write prompt: Error Log Analysis
+  - [x] Parse stack traces
+  - [x] Identify error patterns
+  - [x] Extract context
+- [x] Write prompt: Code Path Tracing
+  - [x] Trace function calls
+  - [x] Identify entry points
+  - [x] Map data flow
+- [x] Write prompt: Root Cause Analysis
+  - [x] Identify potential causes
+  - [x] Rank by likelihood
+  - [x] Provide evidence
+- [x] Write prompt: Edge Case Detection
+  - [x] Null/undefined handling
+  - [x] Boundary conditions
+  - [x] Race conditions
+  - [x] Memory leaks
 
 ### 4.3 Review Engine
 
-- [ ] Implement `skills/bug-investigate/reviewer/error-log.ts`
-- [ ] Implement `skills/bug-investigate/reviewer/code-path.ts`
-- [ ] Implement `skills/bug-investigate/reviewer/root-cause.ts`
-- [ ] Implement `skills/bug-investigate/reviewer/edge-case.ts`
+- [x] Implement `skills/bug-investigate/reviewer/error-log.ts`
+- [x] Implement `skills/bug-investigate/reviewer/code-path.ts`
+- [x] Implement `skills/bug-investigate/reviewer/root-cause.ts`
+- [x] Implement `skills/bug-investigate/reviewer/edge-case.ts`
 
 ---
 
@@ -202,41 +202,41 @@ Buat komponen yang digunakan semua skill.
 
 ### 5.1 SKILL.md
 
-- [ ] Create `skills/performance-audit/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/performance-audit/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 5.2 Prompts
 
-- [ ] Write prompt: Query Analysis
-  - [ ] N+1 query detection
-  - [ ] Slow query identification
-  - [ ] Missing index detection
-- [ ] Write prompt: Memory Analysis
-  - [ ] Memory leak patterns
-  - [ ] Large object allocation
-  - [ ] Unbounded growth
-- [ ] Write prompt: Algorithm Analysis
-  - [ ] Complexity analysis
-  - [ ] Inefficient patterns
-  - [ ] Optimization opportunities
-- [ ] Write prompt: Caching Review
-  - [ ] Cache hit/miss patterns
-  - [ ] Cache invalidation
-  - [ ] Cache strategy
-- [ ] Write prompt: Resource Usage
-  - [ ] CPU-intensive operations
-  - [ ] I/O blocking
-  - [ ] Network calls
+- [x] Write prompt: Query Analysis
+  - [x] N+1 query detection
+  - [x] Slow query identification
+  - [x] Missing index detection
+- [x] Write prompt: Memory Analysis
+  - [x] Memory leak patterns
+  - [x] Large object allocation
+  - [x] Unbounded growth
+- [x] Write prompt: Algorithm Analysis
+  - [x] Complexity analysis
+  - [x] Inefficient patterns
+  - [x] Optimization opportunities
+- [x] Write prompt: Caching Review
+  - [x] Cache hit/miss patterns
+  - [x] Cache invalidation
+  - [x] Cache strategy
+- [x] Write prompt: Resource Usage
+  - [x] CPU-intensive operations
+  - [x] I/O blocking
+  - [x] Network calls
 
 ### 5.3 Review Engine
 
-- [ ] Implement `skills/performance-audit/reviewer/query.ts`
-- [ ] Implement `skills/performance-audit/reviewer/memory.ts`
-- [ ] Implement `skills/performance-audit/reviewer/algorithm.ts`
-- [ ] Implement `skills/performance-audit/reviewer/caching.ts`
-- [ ] Implement `skills/performance-audit/reviewer/resource.ts`
+- [x] Implement `skills/performance-audit/reviewer/query.ts`
+- [x] Implement `skills/performance-audit/reviewer/memory.ts`
+- [x] Implement `skills/performance-audit/reviewer/algorithm.ts`
+- [x] Implement `skills/performance-audit/reviewer/caching.ts`
+- [x] Implement `skills/performance-audit/reviewer/resource.ts`
 
 ---
 
@@ -244,43 +244,43 @@ Buat komponen yang digunakan semua skill.
 
 ### 6.1 SKILL.md
 
-- [ ] Create `skills/architecture-review/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/architecture-review/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 6.2 Prompts
 
-- [ ] Write prompt: Design Pattern Analysis
-  - [ ] Identify used patterns
-  - [ ] Check pattern correctness
-  - [ ] Suggest improvements
-- [ ] Write prompt: Separation of Concerns
-  - [ ] Layer analysis
-  - [ ] Responsibility distribution
-  - [ ] Coupling detection
-- [ ] Write prompt: Modularity Evaluation
-  - [ ] Module boundaries
-  - [ ] Interface design
-  - [ ] Dependency direction
-- [ ] Write prompt: Technical Debt
-  - [ ] Code smells
-  - [ ] Deprecated patterns
-  - [ ] Refactoring opportunities
-- [ ] Write prompt: SOLID Compliance
-  - [ ] Single Responsibility
-  - [ ] Open/Closed
-  - [ ] Liskov Substitution
-  - [ ] Interface Segregation
-  - [ ] Dependency Inversion
+- [x] Write prompt: Design Pattern Analysis
+  - [x] Identify used patterns
+  - [x] Check pattern correctness
+  - [x] Suggest improvements
+- [x] Write prompt: Separation of Concerns
+  - [x] Layer analysis
+  - [x] Responsibility distribution
+  - [x] Coupling detection
+- [x] Write prompt: Modularity Evaluation
+  - [x] Module boundaries
+  - [x] Interface design
+  - [x] Dependency direction
+- [x] Write prompt: Technical Debt
+  - [x] Code smells
+  - [x] Deprecated patterns
+  - [x] Refactoring opportunities
+- [x] Write prompt: SOLID Compliance
+  - [x] Single Responsibility
+  - [x] Open/Closed
+  - [x] Liskov Substitution
+  - [x] Interface Segregation
+  - [x] Dependency Inversion
 
 ### 6.3 Review Engine
 
-- [ ] Implement `skills/architecture-review/reviewer/pattern.ts`
-- [ ] Implement `skills/architecture-review/reviewer/separation.ts`
-- [ ] Implement `skills/architecture-review/reviewer/modularity.ts`
-- [ ] Implement `skills/architecture-review/reviewer/debt.ts`
-- [ ] Implement `skills/architecture-review/reviewer/solid.ts`
+- [x] Implement `skills/architecture-review/reviewer/pattern.ts`
+- [x] Implement `skills/architecture-review/reviewer/separation.ts`
+- [x] Implement `skills/architecture-review/reviewer/modularity.ts`
+- [x] Implement `skills/architecture-review/reviewer/debt.ts`
+- [x] Implement `skills/architecture-review/reviewer/solid.ts`
 
 ---
 
@@ -288,41 +288,41 @@ Buat komponen yang digunakan semua skill.
 
 ### 7.1 SKILL.md
 
-- [ ] Create `skills/dependency-review/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/dependency-review/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 7.2 Prompts
 
-- [ ] Write prompt: Outdated Package Detection
-  - [ ] Compare with latest versions
-  - [ ] Check changelog
-  - [ ] Identify breaking changes
-- [ ] Write prompt: Unused Dependency Detection
-  - [ ] Scan imports
-  - [ ] Compare with package.json
-  - [ ] Identify dead dependencies
-- [ ] Write prompt: Dependency Tree Analysis
-  - [ ] Visualize tree
-  - [ ] Identify duplicates
-  - [ ] Check depth
-- [ ] Write prompt: License Compatibility
-  - [ ] Detect licenses
-  - [ ] Check compatibility
-  - [ ] Flag conflicts
-- [ ] Write prompt: Supply Chain Risk
-  - [ ] Check package authenticity
-  - [ ] Verify maintainer
-  - [ ] Detect typosquatting
+- [x] Write prompt: Outdated Package Detection
+  - [x] Compare with latest versions
+  - [x] Check changelog
+  - [x] Identify breaking changes
+- [x] Write prompt: Unused Dependency Detection
+  - [x] Scan imports
+  - [x] Compare with package.json
+  - [x] Identify dead dependencies
+- [x] Write prompt: Dependency Tree Analysis
+  - [x] Visualize tree
+  - [x] Identify duplicates
+  - [x] Check depth
+- [x] Write prompt: License Compatibility
+  - [x] Detect licenses
+  - [x] Check compatibility
+  - [x] Flag conflicts
+- [x] Write prompt: Supply Chain Risk
+  - [x] Check package authenticity
+  - [x] Verify maintainer
+  - [x] Detect typosquatting
 
 ### 7.3 Review Engine
 
-- [ ] Implement `skills/dependency-review/reviewer/outdated.ts`
-- [ ] Implement `skills/dependency-review/reviewer/unused.ts`
-- [ ] Implement `skills/dependency-review/reviewer/tree.ts`
-- [ ] Implement `skills/dependency-review/reviewer/license.ts`
-- [ ] Implement `skills/dependency-review/reviewer/supply-chain.ts`
+- [x] Implement `skills/dependency-review/reviewer/outdated.ts`
+- [x] Implement `skills/dependency-review/reviewer/unused.ts`
+- [x] Implement `skills/dependency-review/reviewer/tree.ts`
+- [x] Implement `skills/dependency-review/reviewer/license.ts`
+- [x] Implement `skills/dependency-review/reviewer/supply-chain.ts`
 
 ---
 
