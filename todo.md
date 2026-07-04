@@ -90,25 +90,25 @@ Buat komponen yang digunakan semua skill.
 
 ## Phase 2: Prompt Templates (Shared)
 
-- [ ] Create `shared/prompts/` directory
-- [ ] Write prompt: Project Understanding
-  - [ ] Detect project type (monorepo, polyrepo, single)
-  - [ ] Identify entry points
-  - [ ] Map directory structure
-- [ ] Write prompt: Language Detection
-  - [ ] Identify primary language
-  - [ ] Identify secondary languages
-  - [ ] Map file extensions to languages
-- [ ] Write prompt: Framework Detection
-  - [ ] Backend frameworks (Gin, Express, NestJS, Spring Boot, Laravel, Django)
-  - [ ] Frontend frameworks (React, Vue, Angular, NextJS)
-  - [ ] Mobile frameworks (Flutter, React Native)
-  - [ ] Detect from package.json, go.mod, requirements.txt, pom.xml, etc.
-- [ ] Write prompt: Report Generation
-  - [ ] Score calculation
-  - [ ] Severity classification
-  - [ ] Recommendations
-  - [ ] Next steps
+- [x] Create `shared/prompts/` directory
+- [x] Write prompt: Project Understanding
+  - [x] Detect project type (monorepo, polyrepo, single)
+  - [x] Identify entry points
+  - [x] Map directory structure
+- [x] Write prompt: Language Detection
+  - [x] Identify primary language
+  - [x] Identify secondary languages
+  - [x] Map file extensions to languages
+- [x] Write prompt: Framework Detection
+  - [x] Backend frameworks (Gin, Express, NestJS, Spring Boot, Laravel, Django)
+  - [x] Frontend frameworks (React, Vue, Angular, NextJS)
+  - [x] Mobile frameworks (Flutter, React Native)
+  - [x] Detect from package.json, go.mod, requirements.txt, pom.xml, etc.
+- [x] Write prompt: Report Generation
+  - [x] Score calculation
+  - [x] Severity classification
+  - [x] Recommendations
+  - [x] Next steps
 
 ---
 
@@ -116,47 +116,47 @@ Buat komponen yang digunakan semua skill.
 
 ### 3.1 SKILL.md
 
-- [ ] Create `skills/security-audit/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/security-audit/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 3.2 Prompts
 
-- [ ] Write prompt: Secrets Detection
-  - [ ] API keys
-  - [ ] Tokens
-  - [ ] Passwords
-  - [ ] Private keys
-  - [ ] SSH keys
-  - [ ] Certificates
-- [ ] Write prompt: Source Code Review
-  - [ ] SQL Injection patterns
-  - [ ] XSS patterns
-  - [ ] CSRF patterns
-  - [ ] SSRF patterns
-  - [ ] RCE patterns
-  - [ ] Command Injection patterns
-  - [ ] Path Traversal patterns
-  - [ ] Unsafe Deserialization patterns
-- [ ] Write prompt: Configuration Review
-  - [ ] CORS misconfiguration
-  - [ ] Debug mode detection
-  - [ ] Authentication setup
-  - [ ] Session/Cookie config
-  - [ ] JWT configuration
-- [ ] Write prompt: Infrastructure Review
-  - [ ] Dockerfile analysis
-  - [ ] docker-compose security
-  - [ ] Kubernetes manifests
-  - [ ] CI/CD configuration
+- [x] Write prompt: Secrets Detection
+  - [x] API keys
+  - [x] Tokens
+  - [x] Passwords
+  - [x] Private keys
+  - [x] SSH keys
+  - [x] Certificates
+- [x] Write prompt: Source Code Review
+  - [x] SQL Injection patterns
+  - [x] XSS patterns
+  - [x] CSRF patterns
+  - [x] SSRF patterns
+  - [x] RCE patterns
+  - [x] Command Injection patterns
+  - [x] Path Traversal patterns
+  - [x] Unsafe Deserialization patterns
+- [x] Write prompt: Configuration Review
+  - [x] CORS misconfiguration
+  - [x] Debug mode detection
+  - [x] Authentication setup
+  - [x] Session/Cookie config
+  - [x] JWT configuration
+- [x] Write prompt: Infrastructure Review
+  - [x] Dockerfile analysis
+  - [x] docker-compose security
+  - [x] Kubernetes manifests
+  - [x] CI/CD configuration
 
 ### 3.3 Review Engine
 
-- [ ] Implement `skills/security-audit/reviewer/secrets.ts`
-- [ ] Implement `skills/security-audit/reviewer/source-code.ts`
-- [ ] Implement `skills/security-audit/reviewer/config-review.ts`
-- [ ] Implement `skills/security-audit/reviewer/infrastructure.ts`
+- [x] Implement `skills/security-audit/reviewer/secrets.ts`
+- [x] Implement `skills/security-audit/reviewer/source-code.ts`
+- [x] Implement `skills/security-audit/reviewer/config-review.ts`
+- [x] Implement `skills/security-audit/reviewer/infrastructure.ts`
 
 ---
 
