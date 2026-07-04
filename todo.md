@@ -479,6 +479,11 @@ Buat komponen yang digunakan semua skill.
 - [ ] Performance optimization
 - [ ] Error handling improvements
 - [ ] Add logging (optional)
+- [ ] Add install command:
+  - [ ] `skillforge install --opencode`
+  - [ ] `skillforge install --claude`
+  - [ ] Auto-detect target folder
+  - [ ] Copy skills to correct location
 - [ ] Version bump (v1.0.0)
 - [ ] Create GitHub release
 - [ ] Write release notes
