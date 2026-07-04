@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "projectName": "my-api-app",
+    "projectPath": "/path/to/my-api-app",
+    "language": "TypeScript",
+    "framework": "Express",
+    "scanType": "Security Audit",
+    "timestamp": "2024-01-15T10:30:00Z"
+  },
+  "score": {
+    "total": 11,
+    "deduction": 28,
+    "score": 72,
+    "grade": "C",
+    "breakdown": {
+      "Critical": 1,
+      "High": 2,
+      "Medium": 3,
+      "Low": 5,
+      "Info": 0
+    }
+  },
+  "summary": {
+    "total": 11,
+    "critical": 1,
+    "high": 2,
+    "medium": 3,
+    "low": 5,
+    "info": 0
+  },
+  "findings": [
+    {
+      "id": "F-0001",
+      "title": "Hardcoded Secret",
+      "description": "Found hardcoded API key in source code.",
+      "severity": "Critical",
+      "confidence": "High",
+      "category": "Security",
+      "evidence": [
+        {
+          "type": "CodePattern",
+          "file": "src/config/api.ts",
+          "line": 12,
+          "snippet": "const API_KEY = \"sk_live_abc123\";",
+          "description": "Found hardcoded API key"
+        }
+      ],
+      "recommendation": "Move to environment variables."
+    }
+  ]
+}
