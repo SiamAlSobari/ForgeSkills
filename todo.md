@@ -484,10 +484,10 @@ Buat komponen yang digunakan semua skill.
   - [x] `skillforge install --claude`
   - [x] Auto-detect target folder
   - [x] Copy skills to correct location
-- [x] Version bump (v1.0.0)
+- [x] Version bump (v1.0.1)
 - [x] Publish to npm
 - [ ] Create GitHub release
-- [ ] Write release notes
+- [x] Write release notes
 - [ ] Announce (optional)
 
 ---
