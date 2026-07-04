@@ -330,42 +330,42 @@ Buat komponen yang digunakan semua skill.
 
 ### 8.1 SKILL.md
 
-- [ ] Create `skills/database-review/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/database-review/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 8.2 Prompts
 
-- [ ] Write prompt: Query Performance
-  - [ ] Slow query detection
-  - [ ] Missing index detection
-  - [ ] Full table scan detection
-- [ ] Write prompt: Indexing Strategy
-  - [ ] Index usage analysis
-  - [ ] Composite index opportunities
-  - [ ] Unused index detection
-- [ ] Write prompt: Schema Design
-  - [ ] Normalization check
-  - [ ] Data type optimization
-  - [ ] Relationship analysis
-- [ ] Write prompt: SQL Anti-patterns
-  - [ ] SELECT *
-  - [ ] N+1 queries
-  - [ ] Subquery optimization
-  - [ ] JOIN optimization
-- [ ] Write prompt: Migration Safety
-  - [ ] Breaking changes
-  - [ ] Data loss risks
-  - [ ] Rollback strategy
+- [x] Write prompt: Query Performance
+  - [x] Slow query detection
+  - [x] Missing index detection
+  - [x] Full table scan detection
+- [x] Write prompt: Indexing Strategy
+  - [x] Index usage analysis
+  - [x] Composite index opportunities
+  - [x] Unused index detection
+- [x] Write prompt: Schema Design
+  - [x] Normalization check
+  - [x] Data type optimization
+  - [x] Relationship analysis
+- [x] Write prompt: SQL Anti-patterns
+  - [x] SELECT *
+  - [x] N+1 queries
+  - [x] Subquery optimization
+  - [x] JOIN optimization
+- [x] Write prompt: Migration Safety
+  - [x] Breaking changes
+  - [x] Data loss risks
+  - [x] Rollback strategy
 
 ### 8.3 Review Engine
 
-- [ ] Implement `skills/database-review/reviewer/query.ts`
-- [ ] Implement `skills/database-review/reviewer/index.ts`
-- [ ] Implement `skills/database-review/reviewer/schema.ts`
-- [ ] Implement `skills/database-review/reviewer/anti-pattern.ts`
-- [ ] Implement `skills/database-review/reviewer/migration.ts`
+- [x] Implement `skills/database-review/reviewer/query.ts`
+- [x] Implement `skills/database-review/reviewer/index.ts`
+- [x] Implement `skills/database-review/reviewer/schema.ts`
+- [x] Implement `skills/database-review/reviewer/anti-pattern.ts`
+- [x] Implement `skills/database-review/reviewer/migration.ts`
 
 ---
 
@@ -373,76 +373,76 @@ Buat komponen yang digunakan semua skill.
 
 ### 9.1 SKILL.md
 
-- [ ] Create `skills/release-check/SKILL.md`
-  - [ ] Command definition
-  - [ ] Workflow steps
-  - [ ] Output format
+- [x] Create `skills/release-check/SKILL.md`
+  - [x] Command definition
+  - [x] Workflow steps
+  - [x] Output format
 
 ### 9.2 Prompts
 
-- [ ] Write prompt: Changelog Verification
-  - [ ] Check changelog exists
-  - [ ] Verify format
-  - [ ] Check completeness
-- [ ] Write prompt: Version Validation
-  - [ ] Check version bump
-  - [ ] Verify semantic versioning
-  - [ ] Check consistency
-- [ ] Write prompt: CI/CD Check
-  - [ ] Verify pipeline config
-  - [ ] Check test coverage
-  - [ ] Verify build success
-- [ ] Write prompt: Deployment Config
-  - [ ] Check environment variables
-  - [ ] Verify secrets
-  - [ ] Check scaling config
-- [ ] Write prompt: Breaking Change Detection
-  - [ ] API compatibility
-  - [ ] Database migration
-  - [ ] Configuration changes
+- [x] Write prompt: Changelog Verification
+  - [x] Check changelog exists
+  - [x] Verify format
+  - [x] Check completeness
+- [x] Write prompt: Version Validation
+  - [x] Check version bump
+  - [x] Verify semantic versioning
+  - [x] Check consistency
+- [x] Write prompt: CI/CD Check
+  - [x] Verify pipeline config
+  - [x] Check test coverage
+  - [x] Verify build success
+- [x] Write prompt: Deployment Config
+  - [x] Check environment variables
+  - [x] Verify secrets
+  - [x] Check scaling config
+- [x] Write prompt: Breaking Change Detection
+  - [x] API compatibility
+  - [x] Database migration
+  - [x] Configuration changes
 
 ### 9.3 Review Engine
 
-- [ ] Implement `skills/release-check/reviewer/changelog.ts`
-- [ ] Implement `skills/release-check/reviewer/version.ts`
-- [ ] Implement `skills/release-check/reviewer/ci-cd.ts`
-- [ ] Implement `skills/release-check/reviewer/deployment.ts`
-- [ ] Implement `skills/release-check/reviewer/breaking-change.ts`
+- [x] Implement `skills/release-check/reviewer/changelog.ts`
+- [x] Implement `skills/release-check/reviewer/version.ts`
+- [x] Implement `skills/release-check/reviewer/ci-cd.ts`
+- [x] Implement `skills/release-check/reviewer/deployment.ts`
+- [x] Implement `skills/release-check/reviewer/breaking-change.ts`
 
 ---
 
 ## Phase 10: CLI & Runtime (Optional)
 
-- [ ] Create `src/cli/` directory
-- [ ] Implement `index.ts`
-  - [ ] Setup Commander
-  - [ ] Register all commands
-  - [ ] Parse arguments
-  - [ ] Validate with Zod
-- [ ] Implement `runner.ts`
-  - [ ] Orchestrate review pipeline
-  - [ ] Handle errors gracefully
-  - [ ] Show progress indicators
-- [ ] Implement `config.ts`
-  - [ ] Load user config (optional)
-  - [ ] Default settings
-  - [ ] Override with CLI flags
+- [x] Create `src/cli/` directory
+- [x] Implement `index.ts`
+  - [x] Setup Commander
+  - [x] Register all commands
+  - [x] Parse arguments
+  - [x] Validate with Zod
+- [x] Implement `runner.ts`
+  - [x] Orchestrate review pipeline
+  - [x] Handle errors gracefully
+  - [x] Show progress indicators
+- [x] Implement `config.ts`
+  - [x] Load user config (optional)
+  - [x] Default settings
+  - [x] Override with CLI flags
 
 ---
 
 ## Phase 11: Testing
 
-- [ ] Create `tests/` directory
+- [x] Create `tests/` directory
 - [ ] Create test fixtures:
   - [ ] Sample Node.js project
   - [ ] Sample Go project
   - [ ] Sample Python project
   - [ ] Sample project with known issues
-- [ ] Unit tests:
-  - [ ] `shared/analyzer/*.test.ts`
-  - [ ] `shared/findings/*.test.ts`
-  - [ ] `shared/report/*.test.ts`
-  - [ ] `skills/*/reviewer/*.test.ts`
+- [x] Unit tests:
+  - [x] `shared/analyzer/*.test.ts`
+  - [x] `shared/findings/*.test.ts`
+  - [x] `shared/report/*.test.ts`
+  - [x] `skills/*/reviewer/*.test.ts`
 - [ ] Integration tests:
   - [ ] Full workflow test per skill
   - [ ] CLI command test
