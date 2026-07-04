@@ -1,9 +1,11 @@
 {
   "name": "skillforge",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "module": "src/cli/index.ts",
   "type": "module",
-  "private": true,
+  "bin": {
+    "skillforge": "src/cli/index.ts"
+  },
   "scripts": {
     "dev": "bun run src/cli/index.ts",
     "test": "vitest run",
