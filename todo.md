@@ -433,24 +433,24 @@ Buat komponen yang digunakan semua skill.
 ## Phase 11: Testing
 
 - [x] Create `tests/` directory
-- [ ] Create test fixtures:
-  - [ ] Sample Node.js project
+- [x] Create test fixtures:
+  - [x] Sample Node.js project
   - [ ] Sample Go project
   - [ ] Sample Python project
-  - [ ] Sample project with known issues
+  - [x] Sample project with known issues
 - [x] Unit tests:
   - [x] `shared/analyzer/*.test.ts`
   - [x] `shared/findings/*.test.ts`
   - [x] `shared/report/*.test.ts`
   - [x] `skills/*/reviewer/*.test.ts`
-- [ ] Integration tests:
-  - [ ] Full workflow test per skill
-  - [ ] CLI command test
-  - [ ] Output format test
-- [ ] E2E tests:
-  - [ ] Real project scan
+- [x] Integration tests:
+  - [x] Full workflow test per skill
+  - [x] CLI command test
+  - [x] Output format test
+- [x] E2E tests:
+  - [x] Real project scan
   - [ ] Performance benchmarks
-  - [ ] Cross-skill consistency
+  - [x] Cross-skill consistency
 
 ---
 
