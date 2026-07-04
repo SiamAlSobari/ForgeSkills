@@ -485,9 +485,9 @@ Buat komponen yang digunakan semua skill.
   - [x] Auto-detect target folder
   - [x] Copy skills to correct location
 - [x] Version bump (v1.0.0)
+- [x] Publish to npm
 - [ ] Create GitHub release
 - [ ] Write release notes
-- [ ] Publish to npm (optional)
 - [ ] Announce (optional)
 
 ---

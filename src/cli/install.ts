@@ -10,7 +10,7 @@ interface InstallOptions {
 }
 
 const AGENT_FOLDERS: Record<AgentType, string> = {
-  opencode: ".opencode/skills",
+  opencode: ".config/opencode/skills",
   claude: ".claude/skills",
 };
 

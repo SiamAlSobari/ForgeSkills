@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+const { execSync } = require('child_process');
+const path = require('path');
+
+const cliPath = path.join(__dirname, '..', 'src', 'cli', 'index.ts');
+
+try {
+  execSync(`bun run ${cliPath} ${process.argv.slice(2).join(' ')}`, {
+    stdio: 'inherit',
+    cwd: process.cwd()
+  });
+} catch {
+  // Bun not available, try npx tsx
+  try {
+    execSync(`npx tsx ${cliPath} ${process.argv.slice(2).join(' ')}`, {
+      stdio: 'inherit',
+      cwd: process.cwd()
+    });
+  } catch {
+    console.error('Error: bun or tsx is required to run skillforge');
+    console.error('Install bun: https://bun.sh');
+    process.exit(1);
+  }
+}
