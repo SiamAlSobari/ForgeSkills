@@ -21,6 +21,20 @@ program
     runInstall({ agent, path: opts.path });
   });
 
+// Uninstall command
+program
+  .command("uninstall")
+  .description("Uninstall SkillForge skills from AI agent")
+  .option("--opencode", "Uninstall from OpenCode", false)
+  .option("--claude", "Uninstall from Claude Code", false)
+  .option("--path <path>", "Custom installation path")
+  .action(async (opts) => {
+    const agent = opts.opencode ? "opencode" : opts.claude ? "claude" : "opencode";
+    const { runUninstall } = await import("./install.js");
+    runUninstall({ agent, path: opts.path });
+  });
+
+
 // Common options schema
 const commonOptions = z.object({
   path: z.string().optional().default("."),

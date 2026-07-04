@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, cpSync, writeFileSync, readdirSync } from "fs";
+import { existsSync, mkdirSync, cpSync, writeFileSync, readdirSync, rmSync } from "fs";
 import { join, resolve } from "path";
 import { homedir } from "os";
 
@@ -127,6 +127,52 @@ export function runInstall(options: InstallOptions): void {
     console.log();
   } catch (err) {
     console.error("❌ Installation failed:", err);
+    process.exit(1);
+  }
+}
+
+export function runUninstall(options: InstallOptions): void {
+  const agent = options.agent || "opencode";
+  const targetBase = getTargetBase(agent, options.path);
+
+  console.log(`\n🧹 SkillForge Uninstaller\n`);
+  console.log(`Target: ${agent}`);
+  console.log(`Folder: ${targetBase}\n`);
+
+  try {
+    const skills = Object.keys(SKILL_COMMANDS);
+    let removedSkillsCount = 0;
+    let removedCommandsCount = 0;
+
+    for (const skill of skills) {
+      // Remove from skills/ folder
+      const skillPath = join(targetBase, "skills", skill);
+      if (existsSync(skillPath)) {
+        rmSync(skillPath, { recursive: true, force: true });
+        removedSkillsCount++;
+      }
+
+      // Remove from commands/ folder (for OpenCode)
+      if (agent === "opencode") {
+        const commandPath = join(targetBase, "commands", `${skill}.md`);
+        if (existsSync(commandPath)) {
+          rmSync(commandPath, { force: true });
+          removedCommandsCount++;
+        }
+      }
+    }
+
+    console.log(`✅ Uninstallation completed successfully!`);
+    console.log(`  • Removed ${removedSkillsCount} skill directories`);
+    if (agent === "opencode") {
+      console.log(`  • Removed ${removedCommandsCount} command files`);
+    }
+
+    console.log(`\n📌 Next steps:`);
+    console.log(`  1. Restart ${agent === "opencode" ? "OpenCode" : "Claude Code"} to apply changes`);
+    console.log();
+  } catch (err) {
+    console.error("❌ Uninstallation failed:", err);
     process.exit(1);
   }
 }
