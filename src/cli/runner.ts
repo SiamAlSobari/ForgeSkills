@@ -62,7 +62,7 @@ function outputReport(findings: Finding[], metadata: ReportMetadata, options: Ru
 
 export async function runSecurityAudit(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running security audit on ${root}...`);
+  if (!options.json) console.log(`Running security audit on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
   const primaryLang = language.primary.name;
@@ -86,7 +86,7 @@ export async function runSecurityAudit(options: RunOptions) {
 
 export async function runBugInvestigate(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running bug investigation on ${root}...`);
+  if (!options.json) console.log(`Running bug investigation on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
@@ -108,7 +108,7 @@ export async function runBugInvestigate(options: RunOptions) {
 
 export async function runPerformanceAudit(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running performance audit on ${root}...`);
+  if (!options.json) console.log(`Running performance audit on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
@@ -132,7 +132,7 @@ export async function runPerformanceAudit(options: RunOptions) {
 
 export async function runArchitectureReview(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running architecture review on ${root}...`);
+  if (!options.json) console.log(`Running architecture review on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
@@ -156,7 +156,7 @@ export async function runArchitectureReview(options: RunOptions) {
 
 export async function runDependencyReview(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running dependency review on ${root}...`);
+  if (!options.json) console.log(`Running dependency review on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
@@ -180,7 +180,7 @@ export async function runDependencyReview(options: RunOptions) {
 
 export async function runDatabaseReview(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running database review on ${root}...`);
+  if (!options.json) console.log(`Running database review on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
@@ -204,7 +204,7 @@ export async function runDatabaseReview(options: RunOptions) {
 
 export async function runReleaseCheck(options: RunOptions) {
   const root = resolve(options.path || ".");
-  console.log(`Running release check on ${root}...`);
+  if (!options.json) console.log(`Running release check on ${root}...`);
 
   const { language, frameworks } = await analyzeProject(root);
 
