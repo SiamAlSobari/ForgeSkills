@@ -46,38 +46,6 @@ const SKILL_COMMANDS: Record<string, string> = {
   "release-check": "Pre-release checklist - changelog, version, CI/CD, breaking changes",
 };
 
-function createCommandFiles(source: string, target: string): void {
-  const commandsDir = join(target, "commands");
-  const skillsDir = join(source, "skills");
-
-  if (!existsSync(commandsDir)) {
-    mkdirSync(commandsDir, { recursive: true });
-  }
-
-  const skills = readdirSync(skillsDir, { withFileTypes: true })
-    .filter((e) => e.isDirectory())
-    .map((e) => e.name);
-
-  for (const skill of skills) {
-    const skillMdPath = join(skillsDir, skill, "SKILL.md");
-    if (!existsSync(skillMdPath)) continue;
-
-    const skillContent = require("fs").readFileSync(skillMdPath, "utf-8");
-    const description = SKILL_COMMANDS[skill] || skill;
-
-    const commandContent = `---
-description: ${description}
----
-${skillContent}
-
-Arguments: $ARGUMENTS
-If path provided, scan that directory. Otherwise scan current directory.
-`;
-
-    writeFileSync(join(commandsDir, `${skill}.md`), commandContent);
-  }
-}
-
 function getInstalledItems(target: string): string[] {
   if (!existsSync(target)) return [];
   return readdirSync(target, { withFileTypes: true })
@@ -102,11 +70,6 @@ export function runInstall(options: InstallOptions): void {
   try {
     // Copy skills
     copySkills(source, targetBase);
-
-    // Create command files (for OpenCode)
-    if (agent === "opencode") {
-      createCommandFiles(source, targetBase);
-    }
 
     const installed = getInstalledItems(join(targetBase, "skills"));
 

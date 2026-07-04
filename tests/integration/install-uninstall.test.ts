@@ -14,18 +14,16 @@ describe("Integration: Install and Uninstall", () => {
     // Run install
     runInstall({ agent: "opencode", path: tempBase });
 
-    // Check if skills and commands were created
+    // Check if skills were created
     expect(existsSync(join(tempBase, "skills"))).toBe(true);
-    expect(existsSync(join(tempBase, "commands"))).toBe(true);
     expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(true);
-    expect(existsSync(join(tempBase, "commands", "security-audit.md"))).toBe(true);
+    expect(existsSync(join(tempBase, "commands"))).toBe(false);
 
     // Run uninstall
     runUninstall({ agent: "opencode", path: tempBase });
 
-    // Check if skills and commands were removed
+    // Check if skills were removed
     expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(false);
-    expect(existsSync(join(tempBase, "commands", "security-audit.md"))).toBe(false);
 
     // Cleanup tempBase
     rmSync(tempBase, { recursive: true, force: true });
