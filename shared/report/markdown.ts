@@ -70,26 +70,41 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
 
     sections.push(`## ${SEVERITY_EMOJI[severity]} ${severity} Findings\n`);
 
-    for (const finding of group) {
-      sections.push(`### ${finding.title}\n`);
-      sections.push(`**Category:** ${finding.category}`);
-      sections.push(`**Confidence:** ${finding.confidence}\n`);
-      sections.push(finding.description + "\n");
+    // Table Header
+    sections.push(`| Title | Location | Description | ${includeRecommendations ? "Recommendation |" : ""}`);
+    sections.push(`| :--- | :--- | :--- | ${includeRecommendations ? ":--- |" : ""}`);
 
-      if (includeCodeSnippets && finding.evidence.length > 0) {
-        sections.push(`**Evidence:**\n`);
-        for (const ev of finding.evidence) {
-          sections.push(`- \`${ev.file}\`${ev.line ? ` (line ${ev.line})` : ""}`);
-          if (ev.snippet) {
-            sections.push("```");
-            sections.push(ev.snippet);
-            sections.push("```\n");
-          }
-        }
-      }
+    for (const finding of group) {
+      const location = finding.evidence.length > 0
+        ? finding.evidence.map(e => `\`${e.file}${e.line ? `:${e.line}` : ""}\``).join("<br>")
+        : "-";
+      
+      const cleanDescription = finding.description.replace(/\r?\n/g, " ").trim();
+      const cleanRecommendation = finding.recommendation.replace(/\r?\n/g, " ").trim();
 
       if (includeRecommendations) {
-        sections.push(`**Recommendation:**\n${finding.recommendation}\n`);
+        sections.push(`| **${finding.title}** | ${location} | ${cleanDescription} | ${cleanRecommendation} |`);
+      } else {
+        sections.push(`| **${finding.title}** | ${location} | ${cleanDescription} |`);
+      }
+    }
+    sections.push("");
+
+    // Code Snippets (Evidence)
+    if (includeCodeSnippets) {
+      const findingsWithSnippets = group.filter(f => f.evidence.some(e => e.snippet));
+      if (findingsWithSnippets.length > 0) {
+        sections.push(`### Code Evidence\n`);
+        for (const finding of findingsWithSnippets) {
+          for (const ev of finding.evidence) {
+            if (ev.snippet) {
+              sections.push(`#### ${finding.title} (\`${ev.file}${ev.line ? `:${ev.line}` : ""}\`)\n`);
+              sections.push("```");
+              sections.push(ev.snippet);
+              sections.push("```\n");
+            }
+          }
+        }
       }
     }
   }
