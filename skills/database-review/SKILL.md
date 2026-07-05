@@ -1,18 +1,18 @@
 ---
-name: database-review
+name: forge:database-review
 description: >
   Review database usage - queries, indexing, schema, migrations.
-  Trigger when user types /database-review or requests a database review.
+  Trigger when user types /forge:database-review or requests a database review.
 ---
 
-# /database-review
+# /forge:database-review
 
 Review database usage and queries using AI reasoning.
 
 ## Command
 
 ```
-/database-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge:database-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options

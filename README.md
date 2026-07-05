@@ -1,6 +1,6 @@
 # SkillForge 🛠️
 
-[![npm version](https://img.shields.io/npm/v/@yammd/skillforge.svg?style=flat-square)](https://www.npmjs.com/package/@yammd/skillforge)
+[![npm version](https://img.shields.io/npm/v/@yammd/forge-skills.svg?style=flat-square)](https://www.npmjs.com/package/@yammd/forge-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/SiamAlSobari/ForgeSkill/ci.yml?branch=main&style=flat-square)](https://github.com/SiamAlSobari/ForgeSkill/actions)
 
@@ -28,13 +28,13 @@ Once installed, your AI agent gains access to the following global slash command
 
 | Command | Role | Purpose & Scope |
 | :--- | :--- | :--- |
-| `/security-audit` | **Security Engineer** | Scans for hardcoded secrets, SQL injection, XSS, CSRF, SSRF, RCE, unsafe configuration, and Dockerfile/CI-CD vulnerabilities. |
-| `/bug-investigate` | **Debugging Specialist** | Analyzes error logs, traces function execution paths, identifies root causes, and catches edge cases/memory leaks. |
-| `/performance-audit` | **Performance Engineer** | Detects N+1 query patterns, memory leak models, inefficient algorithms, caching opportunities, and CPU/IO bottlenecks. |
-| `/architecture-review` | **Software Architect** | Checks modularity, layer dependencies, design pattern application, SOLID compliance, and identifies technical debt. |
-| `/dependency-review` | **Dependency Analyst** | Detects outdated packages, unused dependencies, licensing incompatibilities, and supply chain vulnerabilities. |
-| `/database-review` | **DBA** | Evaluates indexing strategies, schema design flaws, SQL anti-patterns (e.g. `SELECT *`), and unsafe migrations. |
-| `/release-check` | **Release Manager** | Runs all audits, verifies changelogs, validates semver version bumps, and checks CI/CD pipeline readiness. |
+| `/forge:security-audit` | **Security Engineer** | Scans for hardcoded secrets, SQL injection, XSS, CSRF, SSRF, RCE, unsafe configuration, and Dockerfile/CI-CD vulnerabilities. |
+| `/forge:bug-investigate` | **Debugging Specialist** | Analyzes error logs, traces function execution paths, identifies root causes, and catches edge cases/memory leaks. |
+| `/forge:performance-audit` | **Performance Engineer** | Detects N+1 query patterns, memory leak models, inefficient algorithms, caching opportunities, and CPU/IO bottlenecks. |
+| `/forge:architecture-review` | **Software Architect** | Checks modularity, layer dependencies, design pattern application, SOLID compliance, and identifies technical debt. |
+| `/forge:dependency-review` | **Dependency Analyst** | Detects outdated packages, unused dependencies, licensing incompatibilities, and supply chain vulnerabilities. |
+| `/forge:database-review` | **DBA** | Evaluates indexing strategies, schema design flaws, SQL anti-patterns (e.g. `SELECT *`), and unsafe migrations. |
+| `/forge:release-check` | **Release Manager** | Runs all audits, verifies changelogs, validates semver version bumps, and checks CI/CD pipeline readiness. |
 
 ---
 
@@ -48,14 +48,14 @@ You do not need to install the package globally if you prefer using `npx`. Run t
 
 #### 🟢 For OpenCode
 ```bash
-npx @yammd/skillforge install --opencode
+npx @yammd/forge-skills install --opencode
 ```
 * **What this does**: Automatically copies the SkillForge workflow rules into OpenCode's directory (`~/.config/opencode/skills/`) and generates custom command shortcuts with frontmatter metadata in `~/.config/opencode/commands/`.
-* **Next Steps**: Restart OpenCode. Type `/` in your chat, and you should see all the new slash commands (e.g., `/security-audit`).
+* **Next Steps**: Restart OpenCode. Type `/` in your chat, and you should see all the new slash commands (e.g., `/forge:security-audit`).
 
 #### 🟢 For Claude Code
 ```bash
-npx @yammd/skillforge install --claude
+npx @yammd/forge-skills install --claude
 ```
 * **What this does**: Installs the skills context under Claude Code's global directory (`~/.claude/skills/`).
 * **Next Steps**: Restart Claude Code to load the skills automatically.
@@ -67,7 +67,7 @@ npx @yammd/skillforge install --claude
 If you want to use the commands locally on your machine outside an AI agent's chat interface:
 
 ```bash
-npm install -g @yammd/skillforge
+npm install -g @yammd/forge-skills
 ```
 
 ---
@@ -78,13 +78,13 @@ If you ever need to clean up and remove the integrated skills and commands from 
 
 #### 🔴 From OpenCode
 ```bash
-npx @yammd/skillforge uninstall --opencode
+npx @yammd/forge-skills uninstall --opencode
 ```
 * **What this does**: Safely removes all copied skills directories from `~/.config/opencode/skills/` and command files from `~/.config/opencode/commands/`.
 
 #### 🔴 From Claude Code
 ```bash
-npx @yammd/skillforge uninstall --claude
+npx @yammd/forge-skills uninstall --claude
 ```
 * **What this does**: Safely removes the SkillForge skill directories from `~/.claude/skills/`.
 

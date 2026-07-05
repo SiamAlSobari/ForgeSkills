@@ -51,4 +51,26 @@ describe("Integration: Install and Uninstall", () => {
     // Cleanup tempBase
     rmSync(tempBase, { recursive: true, force: true });
   });
+
+  it("successfully installs and uninstalls to a mock target path for antigravity", () => {
+    // Create mock directories
+    mkdirSync(tempBase, { recursive: true });
+
+    // Run install
+    runInstall({ agent: "antigravity", path: tempBase });
+
+    // Check if skills were created
+    expect(existsSync(join(tempBase, "skills"))).toBe(true);
+    expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(true);
+    expect(existsSync(join(tempBase, "commands"))).toBe(false);
+
+    // Run uninstall
+    runUninstall({ agent: "antigravity", path: tempBase });
+
+    // Check if skills were removed
+    expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(false);
+
+    // Cleanup tempBase
+    rmSync(tempBase, { recursive: true, force: true });
+  });
 });

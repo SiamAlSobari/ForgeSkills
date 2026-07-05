@@ -2,7 +2,7 @@
 
 ## System Design
 
-SkillForge is designed as a modular ecosystem where:
+ForgeSkills is designed as a modular ecosystem where:
 
 1. **Shared Components** provide common functionality
 2. **Skills** implement domain-specific logic

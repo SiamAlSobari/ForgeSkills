@@ -1,18 +1,18 @@
 ---
-name: dependency-review
+name: forge:dependency-review
 description: >
   Review project dependencies - outdated, unused, licenses, supply chain risks.
-  Trigger when user types /dependency-review or requests a dependency review.
+  Trigger when user types /forge:dependency-review or requests a dependency review.
 ---
 
-# /dependency-review
+# /forge:dependency-review
 
 Review project dependencies using AI reasoning.
 
 ## Command
 
 ```
-/dependency-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge:dependency-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options

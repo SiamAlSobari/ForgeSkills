@@ -1,18 +1,18 @@
 ---
-name: architecture-review
+name: forge:architecture-review
 description: >
   Review project architecture - patterns, separation, modularity, SOLID.
-  Trigger when user types /architecture-review or requests an architecture review.
+  Trigger when user types /forge:architecture-review or requests an architecture review.
 ---
 
-# /architecture-review
+# /forge:architecture-review
 
 Review project architecture using AI reasoning.
 
 ## Command
 
 ```
-/architecture-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge:architecture-review [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options

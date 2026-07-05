@@ -9,7 +9,7 @@
 **Solution:** Make sure you're in the project root and dependencies are installed:
 
 ```bash
-cd skillforge
+cd forge-skills
 bun install
 bun run dev security-audit .
 ```

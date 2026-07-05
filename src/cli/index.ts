@@ -14,9 +14,13 @@ program
   .description("Install SkillForge skills to AI agent")
   .option("--opencode", "Install to OpenCode", false)
   .option("--claude", "Install to Claude Code", false)
+  .option("--antigravity", "Install to Google Antigravity", false)
+  .option("--agy", "Install to Google Antigravity (shortcut)", false)
   .option("--path <path>", "Custom installation path")
   .action(async (opts) => {
-    const agent = opts.opencode ? "opencode" : opts.claude ? "claude" : "opencode";
+    let agent: "opencode" | "claude" | "antigravity" = "opencode";
+    if (opts.claude) agent = "claude";
+    else if (opts.antigravity || opts.agy) agent = "antigravity";
     const { runInstall } = await import("./install.js");
     runInstall({ agent, path: opts.path });
   });
@@ -27,9 +31,13 @@ program
   .description("Uninstall SkillForge skills from AI agent")
   .option("--opencode", "Uninstall from OpenCode", false)
   .option("--claude", "Uninstall from Claude Code", false)
+  .option("--antigravity", "Uninstall from Google Antigravity", false)
+  .option("--agy", "Uninstall from Google Antigravity (shortcut)", false)
   .option("--path <path>", "Custom installation path")
   .action(async (opts) => {
-    const agent = opts.opencode ? "opencode" : opts.claude ? "claude" : "opencode";
+    let agent: "opencode" | "claude" | "antigravity" = "opencode";
+    if (opts.claude) agent = "claude";
+    else if (opts.antigravity || opts.agy) agent = "antigravity";
     const { runUninstall } = await import("./install.js");
     runUninstall({ agent, path: opts.path });
   });

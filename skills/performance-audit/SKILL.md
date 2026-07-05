@@ -1,18 +1,18 @@
 ---
-name: performance-audit
+name: forge:performance-audit
 description: >
   Audit application performance - queries, memory, algorithms, caching, resources.
-  Trigger when user types /performance-audit or requests a performance audit/review.
+  Trigger when user types /forge:performance-audit or requests a performance audit/review.
 ---
 
-# /performance-audit
+# /forge:performance-audit
 
 Audit application performance using AI reasoning.
 
 ## Command
 
 ```
-/performance-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge:performance-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options

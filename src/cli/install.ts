@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, cpSync, writeFileSync, readdirSync, rmSync } fro
 import { join, resolve } from "path";
 import { homedir } from "os";
 
-type AgentType = "opencode" | "claude";
+type AgentType = "opencode" | "claude" | "antigravity";
 
 interface InstallOptions {
   agent?: AgentType;
@@ -12,6 +12,7 @@ interface InstallOptions {
 const AGENT_FOLDERS: Record<AgentType, string> = {
   opencode: ".config/opencode",
   claude: ".claude",
+  antigravity: ".gemini/config",
 };
 
 function getTargetBase(agent: AgentType, customPath?: string): string {
@@ -76,7 +77,8 @@ export function runInstall(options: InstallOptions): void {
     console.log(`✅ Skills installed successfully!\n`);
     console.log(`Installed skills:`);
     for (const skill of installed) {
-      console.log(`  • /${skill}`);
+      const isForgeSkill = Object.keys(SKILL_COMMANDS).includes(skill);
+      console.log(`  • /${isForgeSkill ? "forge:" : ""}${skill}`);
     }
 
     console.log(`\n📌 Next steps:`);
@@ -85,6 +87,9 @@ export function runInstall(options: InstallOptions): void {
       console.log(`  2. Type / to see available commands`);
     } else if (agent === "claude") {
       console.log(`  1. Restart Claude Code`);
+      console.log(`  2. Skills will be available automatically`);
+    } else if (agent === "antigravity") {
+      console.log(`  1. Restart Antigravity`);
       console.log(`  2. Skills will be available automatically`);
     }
     console.log();
@@ -132,7 +137,7 @@ export function runUninstall(options: InstallOptions): void {
     }
 
     console.log(`\n📌 Next steps:`);
-    console.log(`  1. Restart ${agent === "opencode" ? "OpenCode" : "Claude Code"} to apply changes`);
+    console.log(`  1. Restart ${agent === "opencode" ? "OpenCode" : agent === "claude" ? "Claude Code" : "Antigravity"} to apply changes`);
     console.log();
   } catch (err) {
     console.error("❌ Uninstallation failed:", err);

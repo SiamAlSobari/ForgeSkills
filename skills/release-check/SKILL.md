@@ -1,18 +1,18 @@
 ---
-name: release-check
+name: forge:release-check
 description: >
   Pre-release checklist - changelog, version, CI/CD, breaking changes.
-  Trigger when user types /release-check or requests a pre-release check.
+  Trigger when user types /forge:release-check or requests a pre-release check.
 ---
 
-# /release-check
+# /forge:release-check
 
 Pre-release checklist using AI reasoning.
 
 ## Command
 
 ```
-/release-check [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge:release-check [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options
