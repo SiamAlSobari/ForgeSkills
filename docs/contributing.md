@@ -12,7 +12,7 @@
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR-USERNAME/ForgeSkill.git
+git clone https://github.com/YOUR-USERNAME/ForgeSkills.git
 
 # Install dependencies
 bun install

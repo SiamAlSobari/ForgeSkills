@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@yammd/forge-skills.svg?style=flat-square)](https://www.npmjs.com/package/@yammd/forge-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/SiamAlSobari/ForgeSkill/ci.yml?branch=main&style=flat-square)](https://github.com/SiamAlSobari/ForgeSkill/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/SiamAlSobari/ForgeSkills/ci.yml?branch=main&style=flat-square)](https://github.com/SiamAlSobari/ForgeSkills/actions)
 
 **ForgeSkills** is a Global AI Skills Ecosystem designed to empower AI Coding Agents (such as **OpenCode**, **Claude Code**, and **Google Antigravity**) with specialized software engineering capabilities.
 
@@ -181,8 +181,8 @@ If you would like to run the project locally and contribute features:
 
 ```bash
 # Clone the repository
-git clone https://github.com/SiamAlSobari/ForgeSkill.git
-cd ForgeSkill
+git clone https://github.com/SiamAlSobari/ForgeSkills.git
+cd ForgeSkills
 
 # Install packages
 bun install
