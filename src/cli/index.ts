@@ -4,7 +4,7 @@ import { z } from "zod";
 const program = new Command();
 
 program
-  .name("skillforge")
+  .name("forge-skills")
   .description("Global AI Skills Ecosystem for code review and audit")
   .version("1.0.0");
 

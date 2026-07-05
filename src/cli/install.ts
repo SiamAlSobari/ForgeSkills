@@ -59,12 +59,12 @@ export function runInstall(options: InstallOptions): void {
   const targetBase = getTargetBase(agent, options.path);
   const source = getSourceDir();
 
-  console.log(`\n🔧 SkillForge Installer\n`);
+  console.log(`\n🔧 ForgeSkills Installer\n`);
   console.log(`Target: ${agent}`);
   console.log(`Folder: ${targetBase}\n`);
 
   if (!existsSync(source)) {
-    console.error("❌ Skills folder not found. Are you running from the SkillForge directory?");
+    console.error("❌ Skills folder not found. Are you running from the ForgeSkills directory?");
     process.exit(1);
   }
 
@@ -103,7 +103,7 @@ export function runUninstall(options: InstallOptions): void {
   const agent = options.agent || "opencode";
   const targetBase = getTargetBase(agent, options.path);
 
-  console.log(`\n🧹 SkillForge Uninstaller\n`);
+  console.log(`\n🧹 ForgeSkills Uninstaller\n`);
   console.log(`Target: ${agent}`);
   console.log(`Folder: ${targetBase}\n`);
 

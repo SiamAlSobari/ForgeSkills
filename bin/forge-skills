@@ -17,7 +17,7 @@ try {
       cwd: process.cwd()
     });
   } catch {
-    console.error('Error: bun or tsx is required to run skillforge');
+    console.error('Error: bun or tsx is required to run forge-skills');
     console.error('Install bun: https://bun.sh');
     process.exit(1);
   }

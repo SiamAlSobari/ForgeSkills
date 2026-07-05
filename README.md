@@ -1,18 +1,18 @@
-# SkillForge 🛠️
+# ForgeSkills 🛠️
 
 [![npm version](https://img.shields.io/npm/v/@yammd/forge-skills.svg?style=flat-square)](https://www.npmjs.com/package/@yammd/forge-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/SiamAlSobari/ForgeSkill/ci.yml?branch=main&style=flat-square)](https://github.com/SiamAlSobari/ForgeSkill/actions)
 
-**SkillForge** is a Global AI Skills Ecosystem designed to empower AI Coding Agents (such as **OpenCode** and **Claude Code**) with specialized software engineering capabilities.
+**ForgeSkills** is a Global AI Skills Ecosystem designed to empower AI Coding Agents (such as **OpenCode**, **Claude Code**, and **Google Antigravity**) with specialized software engineering capabilities.
 
-Instead of typing long, complex prompts for every codebase review, SkillForge equips your AI agent with standardized commands to perform security audits, bug investigations, architecture reviews, performance profiling, and pre-release checks—all under a consistent reporting format and scoring system.
+Instead of typing long, complex prompts for every codebase review, ForgeSkills equips your AI agent with standardized commands to perform security audits, bug investigations, architecture reviews, performance profiling, and pre-release checks—all under a consistent reporting format and scoring system.
 
 ---
 
 ## 🎯 What is this package for?
 
-SkillForge bridges the gap between raw AI code assistance and systematic engineering reviews. It teaches your AI agent to think like:
+ForgeSkills bridges the gap between raw AI code assistance and systematic engineering reviews. It teaches your AI agent to think like:
 * 🛡️ **Security Engineers** during codebase audits.
 * 🔍 **Debugging Engineers** when investigating stack traces or edge cases.
 * ⚡ **Performance Engineers** when profiling queries, algorithms, and caches.
@@ -40,7 +40,7 @@ Once installed, your AI agent gains access to the following global slash command
 
 ## ⚙️ Installation & Setup
 
-SkillForge can be used either as a local CLI tool or integrated directly as global skills into your AI agents.
+ForgeSkills can be used either as a local CLI tool or integrated directly as global skills into your AI agents.
 
 ### 1. Integration with AI Agents (OpenCode & Claude Code)
 
@@ -50,7 +50,7 @@ You do not need to install the package globally if you prefer using `npx`. Run t
 ```bash
 npx @yammd/forge-skills install --opencode
 ```
-* **What this does**: Automatically copies the SkillForge workflow rules into OpenCode's directory (`~/.config/opencode/skills/`) and generates custom command shortcuts with frontmatter metadata in `~/.config/opencode/commands/`.
+* **What this does**: Automatically copies the ForgeSkills workflow rules into OpenCode's directory (`~/.config/opencode/skills/`) and generates custom command shortcuts with frontmatter metadata in `~/.config/opencode/commands/`.
 * **Next Steps**: Restart OpenCode. Type `/` in your chat, and you should see all the new slash commands (e.g., `/forge:security-audit`).
 
 #### 🟢 For Claude Code
@@ -59,6 +59,15 @@ npx @yammd/forge-skills install --claude
 ```
 * **What this does**: Installs the skills context under Claude Code's global directory (`~/.claude/skills/`).
 * **Next Steps**: Restart Claude Code to load the skills automatically.
+
+#### 🟢 For Google Antigravity
+```bash
+npx @yammd/forge-skills install --antigravity
+# or shortcut:
+npx @yammd/forge-skills install --agy
+```
+* **What this does**: Installs the skills context under Antigravity's global customization directory (`~/.gemini/config/skills/`).
+* **Next Steps**: Restart Antigravity to load the skills automatically.
 
 ---
 
@@ -86,23 +95,31 @@ npx @yammd/forge-skills uninstall --opencode
 ```bash
 npx @yammd/forge-skills uninstall --claude
 ```
-* **What this does**: Safely removes the SkillForge skill directories from `~/.claude/skills/`.
+* **What this does**: Safely removes the ForgeSkills skill directories from `~/.claude/skills/`.
+
+#### 🔴 From Google Antigravity
+```bash
+npx @yammd/forge-skills uninstall --antigravity
+# or shortcut:
+npx @yammd/forge-skills uninstall --agy
+```
+* **What this does**: Safely removes the ForgeSkills skill directories from `~/.gemini/config/skills/`.
 
 ---
 
 ## 💻 Local CLI Usage
 
-If you installed SkillForge globally or are running it locally in a development workspace, you can scan repositories directly:
+If you installed ForgeSkills globally or are running it locally in a development workspace, you can scan repositories directly:
 
 ```bash
 # General Syntax
-skillforge <command> [path] [options]
+forge-skills <command> [path] [options]
 
 # Example: Run a deep security audit in the current directory and output to JSON
-skillforge security-audit . --deep --json
+forge-skills security-audit . --deep --json
 
 # Example: Run a quick performance audit in a specific folder
-skillforge performance-audit ./src/backend --quick
+forge-skills performance-audit ./src/backend --quick
 ```
 
 ### Supported CLI Flags
@@ -120,7 +137,7 @@ Each command accepts the following arguments and options:
 
 ## 📊 Output Example
 
-Below is an example of a Markdown report generated by SkillForge, showcasing the table-based severity findings:
+Below is an example of a Markdown report generated by ForgeSkills, showcasing the table-based severity findings:
 
 ### Security Audit Report
 
