@@ -72,13 +72,14 @@ export function runInstall(options: InstallOptions): void {
     // Copy skills
     copySkills(source, targetBase);
 
-    const installed = getInstalledItems(join(targetBase, "skills"));
+    const installed = getInstalledItems(join(targetBase, "skills")).filter(skill =>
+      Object.keys(SKILL_COMMANDS).includes(skill)
+    );
 
     console.log(`✅ Skills installed successfully!\n`);
     console.log(`Installed skills:`);
     for (const skill of installed) {
-      const isForgeSkill = Object.keys(SKILL_COMMANDS).includes(skill);
-      console.log(`  • /${isForgeSkill ? "forge:" : ""}${skill}`);
+      console.log(`  • /forge:${skill}`);
     }
 
     console.log(`\n📌 Next steps:`);

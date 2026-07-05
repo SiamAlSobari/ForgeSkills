@@ -1,6 +1,6 @@
 {
   "name": "@yammd/forge-skills",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Global AI Skills Ecosystem for code review and audit",
   "bin": {
     "forge-skills": "bin/forge-skills"
