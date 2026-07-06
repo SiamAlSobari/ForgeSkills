@@ -48,8 +48,8 @@ Found **{{totalFindings}}** issues: **{{criticalCount}}** critical, **{{highCoun
 {{/if}}
 {{/each}}
 
-**Recommendation:**
-{{this.recommendation}}
+**Impact:**
+{{this.impact}}
 
 ---
 {{/each}}
@@ -64,8 +64,8 @@ Found **{{totalFindings}}** issues: **{{criticalCount}}** critical, **{{highCoun
 
 {{this.description}}
 
-**Recommendation:**
-{{this.recommendation}}
+**Impact:**
+{{this.impact}}
 
 ---
 {{/each}}
@@ -80,8 +80,8 @@ Found **{{totalFindings}}** issues: **{{criticalCount}}** critical, **{{highCoun
 
 {{this.description}}
 
-**Recommendation:**
-{{this.recommendation}}
+**Impact:**
+{{this.impact}}
 
 ---
 {{/each}}
@@ -96,16 +96,10 @@ Found **{{totalFindings}}** issues: **{{criticalCount}}** critical, **{{highCoun
 
 {{this.description}}
 
-**Recommendation:**
-{{this.recommendation}}
+**Impact:**
+{{this.impact}}
 
 ---
-{{/each}}
-
-## Recommendations
-
-{{#each recommendations}}
-{{@number}}. {{this}}
 {{/each}}
 
 ## Next Steps

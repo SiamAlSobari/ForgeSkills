@@ -162,9 +162,9 @@ Found **2** issues: **1** critical, **1** high, **0** medium, **0** low, **0** i
 
 #### 🔴 Critical Findings
 
-| Title | Location | Description | Recommendation |
+| Title | Location | Description | Impact |
 | :--- | :--- | :--- | :--- |
-| **Hardcoded API Key** | `src/config/db.ts:12` | Found a hardcoded plain-text API key stored directly in the database configuration file. | Move all sensitive credentials to environment variables (`.env`) and inject them at runtime using `process.env.DB_PASSWORD`. |
+| **Hardcoded API Key** | `src/config/db.ts:12` | Found a hardcoded plain-text API key stored directly in the database configuration file. | Exposes production credentials in source control history, allowing unauthorized read/write access to all application data. |
 
 ##### Code Evidence
 
