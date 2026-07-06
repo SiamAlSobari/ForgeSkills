@@ -75,6 +75,8 @@ export async function runSecurityAudit(options: RunOptions) {
   const { changed, cachedFindings } = checkCache(root, currentHashes, "Security Audit");
 
   let findings: Finding[] = [];
+  // NOTE: Underlying reviewers only support scanning the entire project root.
+  // Therefore, incremental analysis behaves as a project-level all-or-nothing cache check.
   if (changed.length === 0 && cachedFindings.length > 0) {
     findings = cachedFindings;
   } else {

@@ -5,6 +5,9 @@ node_modules
 out
 dist
 *.tgz
+.forge-cache-*.json
+.forge-cache.json
+
 
 # code coverage
 coverage
