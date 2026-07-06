@@ -15,6 +15,32 @@ interface MarkdownReportOptions {
   findings: Finding[];
   includeRecommendations?: boolean;
   includeCodeSnippets?: boolean;
+  locale?: string;
+}
+
+const TRANSLATIONS: Record<string, Record<string, string>> = {
+  id: {
+    "Security Audit Report": "Laporan Audit Keamanan",
+    "Bug Investigation Report": "Laporan Investigasi Bug",
+    "Performance Audit Report": "Laporan Audit Performa",
+    "Architecture Review Report": "Laporan Review Arsitektur",
+    "Dependency Review Report": "Laporan Review Dependensi",
+    "Database Review Report": "Laporan Review Database",
+    "Release Check Report": "Laporan Pemeriksaan Rilis",
+    "Score": "Skor",
+    "Executive Summary": "Ringkasan Eksekutif",
+    "Detailed Findings": "Temuan Detail",
+    "Critical Findings": "Temuan Kritis",
+    "High Findings": "Temuan Tinggi",
+    "Medium Findings": "Temuan Sedang",
+    "Low Findings": "Temuan Rendah",
+    "Info Findings": "Temuan Info",
+  }
+};
+
+export function translate(text: string, locale?: string): string {
+  if (!locale) return text;
+  return TRANSLATIONS[locale]?.[text] || text;
 }
 
 const SEVERITY_EMOJI: Record<Severity, string> = {
@@ -26,12 +52,12 @@ const SEVERITY_EMOJI: Record<Severity, string> = {
 };
 
 export function generateMarkdownReport(options: MarkdownReportOptions): string {
-  const { metadata, findings, includeRecommendations = true, includeCodeSnippets = true } = options;
+  const { metadata, findings, includeRecommendations = true, includeCodeSnippets = true, locale } = options;
   const score = calculateScore(findings);
   const sections: string[] = [];
 
   // Header
-  sections.push(`# ${metadata.scanType} Report\n`);
+  sections.push(`# ${translate(metadata.scanType + " Report", locale)}\n`);
   sections.push(`**Project:** ${metadata.projectName}`);
   sections.push(`**Path:** ${metadata.projectPath}`);
   sections.push(`**Language:** ${metadata.language}`);
@@ -39,7 +65,7 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
   sections.push(`**Date:** ${metadata.timestamp}\n`);
 
   // Score
-  sections.push(`## Score\n`);
+  sections.push(`## ${translate("Score", locale)}\n`);
   sections.push(`**${score.score}/100** (Grade: ${score.grade})\n`);
   sections.push(`| Severity | Count |`);
   sections.push(`|----------|-------|`);
@@ -51,7 +77,7 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
   sections.push("");
 
   // Executive Summary
-  sections.push(`## Executive Summary\n`);
+  sections.push(`## ${translate("Executive Summary", locale)}\n`);
   sections.push(
     `Found **${findings.length}** issues: **${score.breakdown[Severity.Critical]}** critical, **${score.breakdown[Severity.High]}** high, **${score.breakdown[Severity.Medium]}** medium, **${score.breakdown[Severity.Low]}** low, **${score.breakdown[Severity.Info]}** info.\n`
   );
@@ -68,7 +94,7 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
     const group = grouped.get(severity);
     if (!group || group.length === 0) continue;
 
-    sections.push(`## ${SEVERITY_EMOJI[severity]} ${severity} Findings\n`);
+    sections.push(`## ${SEVERITY_EMOJI[severity]} ${translate(severity + " Findings", locale)}\n`);
 
     // Table Header
     sections.push(`| Title | Location | Description | ${includeRecommendations ? "Recommendation |" : ""}`);

@@ -18,6 +18,7 @@ interface RunOptions {
   json?: boolean;
   verbose?: boolean;
   external?: boolean;
+  lang?: string;
 }
 
 async function analyzeProject(root: string) {
@@ -58,7 +59,7 @@ function outputReport(findings: Finding[], metadata: ReportMetadata, options: Ru
   if (options.json) {
     console.log(generateJsonString({ metadata, findings: deduplicated }));
   } else {
-    console.log(generateMarkdownReport({ metadata, findings: deduplicated }));
+    console.log(generateMarkdownReport({ metadata, findings: deduplicated, locale: options.lang }));
   }
 }
 

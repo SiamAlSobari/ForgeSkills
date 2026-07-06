@@ -52,6 +52,7 @@ const commonOptions = z.object({
   json: z.boolean().optional().default(false),
   verbose: z.boolean().optional().default(false),
   external: z.boolean().optional().default(false),
+  lang: z.string().optional().default("en"),
 });
 
 type CommonOptions = z.infer<typeof commonOptions>;
@@ -71,6 +72,7 @@ program
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
   .option("--external", "Run external scanners (npm audit, semgrep)", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runSecurityAudit } = await import("./runner.js");
@@ -87,6 +89,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runBugInvestigate } = await import("./runner.js");
@@ -103,6 +106,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runPerformanceAudit } = await import("./runner.js");
@@ -119,6 +123,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runArchitectureReview } = await import("./runner.js");
@@ -136,6 +141,7 @@ program
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
   .option("--external", "Run external scanners (npm audit, semgrep)", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runDependencyReview } = await import("./runner.js");
@@ -152,6 +158,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runDatabaseReview } = await import("./runner.js");
@@ -168,6 +175,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runReleaseCheck } = await import("./runner.js");
