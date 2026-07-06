@@ -41,7 +41,10 @@ export function checkCache(projectPath: string, currentHashes: Record<string, st
         changed.push(file);
       }
     }
-    const cachedFindings = data.findings.filter(f => !changed.includes(f.location));
+    const cachedFindings = data.findings.filter(f => {
+      if (!f.evidence || !Array.isArray(f.evidence)) return true;
+      return !f.evidence.some((e: any) => changed.includes(e.file));
+    });
     return { changed, cachedFindings };
   } catch {
     return { changed: Object.keys(currentHashes), cachedFindings: [] };
