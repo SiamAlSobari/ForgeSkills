@@ -56,6 +56,7 @@ export function runNpmAudit(projectPath: string): any[] {
     if (err.stdout) {
       return parseNpmAudit(err.stdout.toString());
     }
+    console.warn("⚠️ Warning: 'npm' command not found or failed to execute. Skipping dependency audit.");
     return [];
   }
 }
@@ -68,6 +69,7 @@ export function runSemgrep(projectPath: string): any[] {
     if (err.stdout) {
       return parseSemgrep(err.stdout.toString());
     }
+    console.warn("⚠️ Warning: 'semgrep' command not found or failed to execute. Skipping static code review.");
     return [];
   }
 }
