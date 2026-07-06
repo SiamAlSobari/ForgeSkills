@@ -37,6 +37,7 @@ export interface Finding {
   category: string;
   evidence: Evidence[];
   recommendation: string;
+  impact?: string;
   references?: string[];
 }
 

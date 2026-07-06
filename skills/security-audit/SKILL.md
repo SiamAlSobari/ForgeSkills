@@ -97,9 +97,9 @@ Found **[total]** issues: **[count]** critical, **[count]** high, **[count]** me
 
 ### [Severity Group (e.g. 🔴 Critical)]
 
-| Title | Location | Description | Recommendation |
+| Title | Location | Description | Impact |
 | :--- | :--- | :--- | :--- |
-| **[Finding Title]** | [File:L[line]](file://[absolute-path]#[line]) | [Description] | [Recommendation] |
+| **[Finding Title]** | `[file-name]:[line]` | [Description] | [Impact] |
 
 #### 📂 Code Evidence
 ##### **Finding #[number]: [Finding Title]**

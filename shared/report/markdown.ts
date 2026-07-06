@@ -97,8 +97,8 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
     sections.push(`## ${SEVERITY_EMOJI[severity]} ${translate(severity + " Findings", locale)}\n`);
 
     // Table Header
-    sections.push(`| Title | Location | Description | ${includeRecommendations ? "Recommendation |" : ""}`);
-    sections.push(`| :--- | :--- | :--- | ${includeRecommendations ? ":--- |" : ""}`);
+    sections.push(`| Title | Location | Description | Impact |`);
+    sections.push(`| :--- | :--- | :--- | :--- |`);
 
     for (const finding of group) {
       const location = finding.evidence.length > 0
@@ -106,13 +106,9 @@ export function generateMarkdownReport(options: MarkdownReportOptions): string {
         : "-";
       
       const cleanDescription = finding.description.replace(/\r?\n/g, " ").trim();
-      const cleanRecommendation = finding.recommendation.replace(/\r?\n/g, " ").trim();
+      const cleanImpact = (finding.impact || finding.recommendation || "").replace(/\r?\n/g, " ").trim();
 
-      if (includeRecommendations) {
-        sections.push(`| **${finding.title}** | ${location} | ${cleanDescription} | ${cleanRecommendation} |`);
-      } else {
-        sections.push(`| **${finding.title}** | ${location} | ${cleanDescription} |`);
-      }
+      sections.push(`| **${finding.title}** | ${location} | ${cleanDescription} | ${cleanImpact} |`);
     }
     sections.push("");
 
