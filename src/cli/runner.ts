@@ -17,6 +17,7 @@ interface RunOptions {
   markdown?: boolean;
   json?: boolean;
   verbose?: boolean;
+  external?: boolean;
 }
 
 async function analyzeProject(root: string) {
@@ -73,7 +74,7 @@ export async function runSecurityAudit(options: RunOptions) {
   const { changed, cachedFindings } = checkCache(root, currentHashes, "Security Audit");
 
   let findings: Finding[] = [];
-  if (changed.length === 0) {
+  if (changed.length === 0 && cachedFindings.length > 0) {
     findings = cachedFindings;
   } else {
     const { scanForSecrets } = await import("../../skills/security-audit/reviewer/secrets.js");
@@ -87,6 +88,10 @@ export async function runSecurityAudit(options: RunOptions) {
       ...(await scanConfigs(root)),
       ...(await scanInfrastructure(root)),
     ];
+    if (options.external) {
+      const { runSemgrep } = await import("../shared/scanners/external.js");
+      findings.push(...runSemgrep(root));
+    }
     saveCache(root, currentHashes, findings, "Security Audit");
   }
 
@@ -201,7 +206,7 @@ export async function runDependencyReview(options: RunOptions) {
   const { changed, cachedFindings } = checkCache(root, currentHashes, "Dependency Review");
 
   let findings: Finding[] = [];
-  if (changed.length === 0) {
+  if (changed.length === 0 && cachedFindings.length > 0) {
     findings = cachedFindings;
   } else {
     const { scanOutdated } = await import("../../skills/dependency-review/reviewer/outdated.js");
@@ -217,6 +222,10 @@ export async function runDependencyReview(options: RunOptions) {
       ...(await scanLicenses(root)),
       ...(await scanSupplyChain(root)),
     ];
+    if (options.external) {
+      const { runNpmAudit } = await import("../shared/scanners/external.js");
+      findings.push(...runNpmAudit(root));
+    }
     saveCache(root, currentHashes, findings, "Dependency Review");
   }
 

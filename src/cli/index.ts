@@ -51,6 +51,7 @@ const commonOptions = z.object({
   markdown: z.boolean().optional().default(true),
   json: z.boolean().optional().default(false),
   verbose: z.boolean().optional().default(false),
+  external: z.boolean().optional().default(false),
 });
 
 type CommonOptions = z.infer<typeof commonOptions>;
@@ -69,6 +70,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--external", "Run external scanners (npm audit, semgrep)", false)
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runSecurityAudit } = await import("./runner.js");
@@ -133,6 +135,7 @@ program
   .option("--markdown", "Output as markdown", true)
   .option("--json", "Output as JSON", false)
   .option("--verbose", "Detailed output", false)
+  .option("--external", "Run external scanners (npm audit, semgrep)", false)
   .action(async (path, opts) => {
     const options = parseOptions({ path, ...opts });
     const { runDependencyReview } = await import("./runner.js");
