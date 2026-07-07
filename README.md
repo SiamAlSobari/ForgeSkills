@@ -28,15 +28,18 @@ ForgeSkills bridges the gap between raw AI code generation and systematic engine
 
 Once installed, your AI agent gains access to the following global slash commands:
 
-| Command | Specialist Role | Focus Area | Supported Languages |
-| :--- | :--- | :--- | :--- |
-| `/forge:security-audit` | 🛡️ Security Engineer | Secrets, SQLi/XSS, Unsafe configs | JS, TS, Py, Go, Java, PHP |
-| `/forge:bug-investigate` | 🔍 Debug Specialist | Error logs, code paths, panics | JS, TS, Py, Go, Java, PHP |
-| `/forge:performance-audit` | ⚡ Performance Engineer | N+1 queries, memory leaks, bottlenecks | JS, TS, Py, Go, Java, PHP |
-| `/forge:architecture-review` | 📐 Software Architect | SOLID compliance, technical debt | JS, TS, Py, Go, Java, PHP |
-| `/forge:dependency-review` | 📦 Dependency Analyst | Unused/misplaced dependencies | JS, TS, Py, Go, Java, PHP |
-| `/forge:database-review` | 🗄️ Database Administrator | Query anti-patterns, missing indexes | JS, TS, Py, Go, Java, PHP |
-| `/forge:release-check` | 📦 Release Manager | Changelogs, breaking changes, CI/CD | JS, TS, Py, Go, Java, PHP |
+| Command | Specialist Role | Purpose & Scope |
+| :--- | :--- | :--- |
+| `/forge:security-audit` | 🛡️ Security Engineer | Scans for secrets, injection vulnerabilities (SQL, XSS, CSRF, SSRF, RCE), and unsafe configurations. |
+| `/forge:bug-investigate` | 🔍 Debug Specialist | Analyzes error logs, function execution paths, root causes, panics, and edge cases. |
+| `/forge:performance-audit` | ⚡ Performance Engineer | Audits N+1 query patterns, memory leaks, inefficient algorithms, caching, and CPU/IO bottlenecks. |
+| `/forge:architecture-review` | 📐 Software Architect | Evaluates design patterns, modularity, SOLID principles, and identifies technical debt. |
+| `/forge:dependency-review` | 📦 Dependency Analyst | Detects outdated packages, unused dependencies, license issues, and supply-chain risks. |
+| `/forge:database-review` | 🗄️ Database Administrator | Audits query execution plans, indexing coverage, database schemas, and migration scripts. |
+| `/forge:release-check` | 📦 Release Manager | Runs full checklists, changelog validation, breaking changes, and CI/CD pipelines readiness. |
+
+> [!TIP]
+> **🌐 Language Support**: Optimized for **JavaScript, TypeScript, Python, Go, Java, and PHP**—with extensible pattern definitions to analyze any code repository.
 
 ---
 
