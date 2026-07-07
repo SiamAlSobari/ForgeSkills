@@ -47,12 +47,40 @@ const ERROR_PATTERNS: ErrorPattern[] = [
     description: "Catching errors with only console.log. Error might need more handling.",
     recommendation: "Consider proper error handling, logging service, or re-throwing.",
   },
+  {
+    name: "Go Panic/Stack Trace Pattern",
+    pattern: /panic\s*\(|goroutine\s+\d+\s+\[running\]/g,
+    severity: Severity.High,
+    description: "Go panic call or goroutine running stack trace pattern.",
+    recommendation: "Use recover() to catch panics or investigate stack trace for bug root cause.",
+  },
+  {
+    name: "Python Traceback Pattern",
+    pattern: /Traceback\s*\(most\s+recent\s+call\s+last\)/g,
+    severity: Severity.High,
+    description: "Python traceback/exception stack trace pattern.",
+    recommendation: "Ensure python exceptions are caught using try-except block.",
+  },
+  {
+    name: "Java Exception Pattern",
+    pattern: /Exception\s+in\s+thread\s+"[^"]+"\s+[\w.]+/g,
+    severity: Severity.High,
+    description: "Java main thread or worker thread exception crash pattern.",
+    recommendation: "Wrap entry point or runnable in a try-catch block.",
+  },
+  {
+    name: "PHP Fatal Error Pattern",
+    pattern: /Fatal\s+error:\s+[\w\s]+/g,
+    severity: Severity.High,
+    description: "PHP fatal runtime error pattern.",
+    recommendation: "Configure custom error/exception handler or fix fatal script error.",
+  },
 ];
 
 export async function scanErrorLogs(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

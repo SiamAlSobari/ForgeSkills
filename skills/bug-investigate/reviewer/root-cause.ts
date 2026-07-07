@@ -40,12 +40,19 @@ const ROOT_CAUSE_PATTERNS: RootCausePattern[] = [
     description: "Mutable object/array declared that could be shared and modified unexpectedly.",
     recommendation: "Consider using const and creating new objects/arrays instead of mutating.",
   },
+  {
+    name: "Exception/Panic Handler",
+    pattern: /\b(?:catch\s*\(|except\s+Exception|recover\s*\(\)|set_exception_handler)/g,
+    severity: Severity.Low,
+    description: "Exception handling block or panic recovery block identified.",
+    recommendation: "Ensure the block logs the exception context properly and doesn't swallow errors.",
+  },
 ];
 
 export async function scanRootCauses(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

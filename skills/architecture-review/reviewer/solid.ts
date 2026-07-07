@@ -6,7 +6,7 @@ import { createFinding, type Finding, Severity, Confidence, EvidenceType } from 
 export async function scanSOLID(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

@@ -38,7 +38,7 @@ const CACHING_PATTERNS: CachingPattern[] = [
 export async function scanCaching(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

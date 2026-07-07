@@ -161,7 +161,7 @@ function checkMagicNumbers(content: string, file: string): Finding[] {
 export async function scanPatterns(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

@@ -47,12 +47,33 @@ const MEMORY_PATTERNS: MemoryPattern[] = [
     description: "Array.push without size limit. Array grows unbounded.",
     recommendation: "Implement size limits or cleanup for growing arrays.",
   },
+  {
+    name: "Unclosed Stream or Reader",
+    pattern: /(?:FileReader|BufferedReader|FileInputStream|FileOutputStream)\s+\w+/g,
+    severity: Severity.Medium,
+    description: "Unclosed stream or reader in Java. Can cause resource and memory leaks.",
+    recommendation: "Ensure the stream/reader is closed in a finally block, or use try-with-resources.",
+  },
+  {
+    name: "Mutable Default Argument",
+    pattern: /def\s+\w+\([^)]*=\s*(?:\[\]|\{\})\s*[^)]*\)/g,
+    severity: Severity.Medium,
+    description: "Mutable default argument in Python. The same container is shared across all function calls.",
+    recommendation: "Use None as the default argument and initialize the mutable object inside the function.",
+  },
+  {
+    name: "Unbuffered Channel or Goroutine Leak Risk",
+    pattern: /make\s*\(\s*chan\s+\w+\s*\)/g,
+    severity: Severity.Low,
+    description: "Unbuffered channel created in Go. Sending to it blocks until received, which can leak goroutines.",
+    recommendation: "Ensure channel is buffered or read asynchronously to prevent goroutine leaks.",
+  },
 ];
 
 export async function scanMemory(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

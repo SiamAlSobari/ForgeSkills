@@ -41,18 +41,32 @@ const EDGE_CASE_PATTERNS: EdgeCasePattern[] = [
     recommendation: "Clear intervals/timeouts in cleanup/unmount lifecycle.",
   },
   {
+    name: "Go Unhandled Error",
+    pattern: /(?:_|, _)\s*:=\s*|_\s*=\s*/g,
+    severity: Severity.Medium,
+    description: "Go error or value explicitly ignored using blank identifier.",
+    recommendation: "Handle the error returned by the function instead of discarding it with '_'.",
+  },
+  {
     name: "Division Without Zero Check",
-    pattern: /\/\s*(?![\d/*])(\w+)/g,
+    pattern: /\/\s*(?![\d/*])(\$?[a-zA-Z_]\w*)/g,
     severity: Severity.Low,
     description: "Division by variable without zero check.",
     recommendation: "Check divisor is not zero before division.",
+  },
+  {
+    name: "Null Method Invocation",
+    pattern: /\b(?:[a-zA-Z_]\w*)\s*->\s*(?:[a-zA-Z_]\w*)\s*\(/g,
+    severity: Severity.Medium,
+    description: "Method invocation using -> operator in PHP without null check.",
+    recommendation: "Ensure object is not null before invoking methods.",
   },
 ];
 
 export async function scanEdgeCases(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

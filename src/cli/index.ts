@@ -42,6 +42,15 @@ program
     runUninstall({ agent, path: opts.path });
   });
 
+// Upgrade command
+program
+  .command("upgrade")
+  .description("Interactive assistant to upgrade installed skills for AI agents")
+  .action(async () => {
+    const { runUpgrade } = await import("./upgrade.js");
+    await runUpgrade();
+  });
+
 
 // Common options schema
 const commonOptions = z.object({

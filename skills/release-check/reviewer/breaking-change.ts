@@ -9,7 +9,7 @@ export async function scanBreakingChanges(root: string): Promise<Finding[]> {
   // Check git diff for breaking changes
   // This is a simplified version - in production, you'd compare against previous version
 
-  const codeExtensions = ["ts", "js", "jsx", "tsx"];
+  const codeExtensions = ["ts", "js", "jsx", "tsx", "go", "py", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

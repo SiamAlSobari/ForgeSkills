@@ -6,7 +6,7 @@ import { createFinding, type Finding, Severity, Confidence, EvidenceType } from 
 export async function scanAntiPatterns(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "js", "py", "go", "rb", "php"];
+  const codeExtensions = ["ts", "js", "py", "go", "rb", "php", "java"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

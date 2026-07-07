@@ -40,12 +40,19 @@ const CODE_PATH_PATTERNS: CodePathPattern[] = [
     description: "Property access inside null check, but value could change between check and use.",
     recommendation: "Use optional chaining or store value in variable.",
   },
+  {
+    name: "Entry Point / Main Function",
+    pattern: /\b(?:func\s+main\s*\(\)|if\s+__name__\s*==\s*['"]__main__['"]\s*:|public\s+static\s+void\s+main\s*\()/g,
+    severity: Severity.Low,
+    description: "Application entry point or main function detected.",
+    recommendation: "Ensure entry point initializes logging, configuration, and proper error handling.",
+  },
 ];
 
 export async function scanCodePaths(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {

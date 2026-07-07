@@ -1,166 +1,108 @@
 # 🛠️ ForgeSkills
 
-[![npm version](https://img.shields.io/npm/v/@yammd/forge-skills.svg?style=for-the-badge&color=blue)](https://www.npmjs.com/package/@yammd/forge-skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/SiamAlSobari/ForgeSkills/ci.yml?branch=main&style=for-the-badge)](https://github.com/SiamAlSobari/ForgeSkills/actions)
-[![Bun](https://img.shields.io/badge/Bun-%23000000.svg?style=for-the-badge&logo=bun&logoColor=white)](https://bun.sh)
-[![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![npm version](https://img.shields.io/npm/v/@yammd/forge-skills.svg?style=flat-square&color=3b82f6)](https://www.npmjs.com/package/@yammd/forge-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Bun](https://img.shields.io/badge/Bun-Compatible-black?style=flat-square&logo=bun)](https://bun.sh)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-**ForgeSkills** is a Global AI Skills Ecosystem designed to empower AI Coding Agents (such as **Google Antigravity / agy**, **OpenCode**, and **Claude Code**) with specialized software engineering capabilities.
+**ForgeSkills** is a global AI skills ecosystem that empowers AI Coding Agents (such as **Google Antigravity / agy**, **OpenCode**, and **Claude Code**) with specialized software engineering capabilities.
 
-Instead of writing long, repetitive prompts for every codebase review, **ForgeSkills** equips your AI agent with standardized commands to perform security audits, bug investigations, architecture reviews, performance profiling, database checks, and pre-release audits—delivering them in a consistent reporting format and scoring system.
+Instead of writing long, repetitive system prompts, **ForgeSkills** equips your AI agents with standardized commands to perform security audits, bug investigations, architecture reviews, performance profiling, database checks, and pre-release audits—all delivered in a consistent reporting format and scoring system.
 
 ---
 
-## 🎯 Key Capabilities
+## 🎯 Key Specialists Exposed
 
 ForgeSkills bridges the gap between raw AI code generation and systematic engineering analysis. It instructs your AI agent to think like:
-* 🛡️ **Security Engineers** during codebase audits.
-* 🔍 **Debugging Specialists** when analyzing logs, execution paths, and edge cases.
-* ⚡ **Performance Engineers** profiling queries, algorithms, and CPU/IO bottlenecks.
-* 📐 **Software Architects** evaluating design patterns, modularity, and SOLID compliance.
-* 📦 **Dependency Analysts** checking package trees and supply-chain vulnerabilities.
-* 🗄️ **Database Administrators** checking indexes, schema design, and query anti-patterns.
+
+* 🛡️ **Security Engineers** — detecting secrets, injections, and unsafe configurations.
+* 🔍 **Debugging Specialists** — analyzing logs, execution paths, and edge cases.
+* ⚡ **Performance Engineers** — profiling queries, algorithms, and CPU/IO bottlenecks.
+* 📐 **Software Architects** — evaluating design patterns and SOLID compliance.
+* 📦 **Dependency Analysts** — finding unused packages and supply-chain risks.
+* 🗄️ **Database Administrators** — auditing queries, indexing, and migration issues.
 
 ---
 
-## 🚀 Available AI Commands & Skills
+## 🚀 Slash Commands
 
 Once installed, your AI agent gains access to the following global slash commands:
 
-| Command | Specialist Role | Purpose & Scope |
-| :--- | :--- | :--- |
-| `/forge:security-audit` | 🛡️ **Security Engineer** | Scans for secrets, injection vulnerabilities (SQL, XSS, CSRF, SSRF, RCE), unsafe configs, and container/CI-CD vulnerabilities. |
-| `/forge:bug-investigate` | 🔍 **Debugging Specialist** | Analyzes error logs, traces function execution, identifies root causes, and detects edge cases/memory leaks. |
-| `/forge:performance-audit` | ⚡ **Performance Engineer** | Detects N+1 query patterns, memory leaks, inefficient algorithms, caching opportunities, and CPU/IO bottlenecks. |
-| `/forge:architecture-review` | 📐 **Software Architect** | Evaluates codebase modularity, layer dependencies, design patterns, SOLID principles, and flags technical debt. |
-| `/forge:dependency-review` | 📦 **Dependency Analyst** | Detects outdated packages, unused dependencies, license violations, and supply-chain vulnerabilities. |
-| `/forge:database-review` | 🗄️ **DBA** | Evaluates index coverage, schema flaws, SQL anti-patterns (e.g. `SELECT *`), and unsafe migrations. |
-| `/forge:release-check` | 📦 **Release Manager** | Runs all audits, checks changelogs, validates semver bump correctness, and ensures CI/CD readiness. |
+| Command | Specialist Role | Focus Area | Supported Languages |
+| :--- | :--- | :--- | :--- |
+| `/forge:security-audit` | 🛡️ Security Engineer | Secrets, SQLi/XSS, Unsafe configs | JS, TS, Py, Go, Java, PHP |
+| `/forge:bug-investigate` | 🔍 Debug Specialist | Error logs, code paths, panics | JS, TS, Py, Go, Java, PHP |
+| `/forge:performance-audit` | ⚡ Performance Engineer | N+1 queries, memory leaks, bottlenecks | JS, TS, Py, Go, Java, PHP |
+| `/forge:architecture-review` | 📐 Software Architect | SOLID compliance, technical debt | JS, TS, Py, Go, Java, PHP |
+| `/forge:dependency-review` | 📦 Dependency Analyst | Unused/misplaced dependencies | JS, TS, Py, Go, Java, PHP |
+| `/forge:database-review` | 🗄️ Database Administrator | Query anti-patterns, missing indexes | JS, TS, Py, Go, Java, PHP |
+| `/forge:release-check` | 📦 Release Manager | Changelogs, breaking changes, CI/CD | JS, TS, Py, Go, Java, PHP |
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Installation & Management
 
-You can install ForgeSkills directly as global skills in your favorite AI Agent, or use it as a standalone CLI.
+You don't need to manually clone or configure files. Install and manage everything directly using `npx`.
 
-### 1. Integrating with AI Agents
+### 1. Quick Integration
 
-You don't need to manually clone or install the package globally. Use `npx` to install it into your agent configurations.
+Run the installer command for your preferred AI agent:
 
-#### 🟢 Google Antigravity & agy
 ```bash
-npx @yammd/forge-skills install --antigravity
-# or use the shortcut:
+# For Google Antigravity & agy
 npx @yammd/forge-skills install --agy
-```
-* **What this does**: Copies the ForgeSkills system prompt files and configurations to your global Antigravity config directory (`~/.gemini/config/skills/`).
-* **Next Steps**: Restart Antigravity. The new skills are loaded automatically.
 
-#### 🟢 OpenCode
-```bash
+# For OpenCode
 npx @yammd/forge-skills install --opencode
-```
-* **What this does**: Automatically copies the rules to `~/.config/opencode/skills/` and creates command shortcuts in `~/.config/opencode/commands/`.
-* **Next Steps**: Restart OpenCode. Type `/` in the chat to see the slash commands (e.g., `/forge:security-audit`).
 
-#### 🟢 Claude Code
-```bash
+# For Claude Code
 npx @yammd/forge-skills install --claude
 ```
-* **What this does**: Copies the skills directly to Claude Code's global directory (`~/.claude/skills/`).
-* **Next Steps**: Restart Claude Code to auto-load the skills.
 
----
+> [!NOTE]
+> This command copies the system prompts and configurations into your agent's global config directory. Just restart the agent afterwards!
 
-### 2. Standalone CLI Installation
+### 2. Interactive Upgrade & Maintenance
 
-If you want to use the commands locally from your host terminal outside of any AI chat interface:
+When a new version is released, update your active agents with a single interactive menu:
 
 ```bash
-npm install -g @yammd/forge-skills
+npx @yammd/forge-skills@latest upgrade
+```
+
+* **Interactive Menu**: Use the **Up/Down arrows** to navigate, **Space** to select/deselect agents, and **Enter** to perform the upgrade.
+
+### 3. Uninstalling
+
+To cleanly remove the skills from your agents:
+
+```bash
+npx @yammd/forge-skills uninstall --agy
+# or --opencode, --claude
 ```
 
 ---
 
 ## 💻 Local CLI Usage
 
-Execute audits and reviews directly against target directories:
+You can also run audits directly on your machine outside any AI agent interface:
 
 ```bash
-# General Syntax
-forge-skills <command> [path] [options]
+# Install globally
+npm install -g @yammd/forge-skills
 
-# Example: Run a deep security audit in the current directory and output to JSON
-forge-skills security-audit . --deep --json
+# Run a deep security audit in the current folder
+forge-skills security-audit . --deep
 
-# Example: Run a performance audit in Indonesian
+# Run a performance audit with Indonesian output
 forge-skills performance-audit ./src/backend --lang id
 ```
 
-### Supported CLI Flags
-
-Each command accepts the following arguments and options:
-
-* `[path]` — The target directory to scan (default: `.`).
+### CLI Flags
 * `--quick` — Runs a fast audit focusing strictly on high-impact, critical patterns.
-* `--deep` — Runs a comprehensive scan across all source files and configuration items.
-* `--markdown` — Generates a beautifully formatted Markdown report (default).
-* `--json` — Outputs machine-readable JSON structure containing all findings and scores.
-* `--verbose` — Displays detailed execution paths and debugging messages.
-* `--external` — Runs external scanners where applicable (e.g., `npm audit`, `semgrep`). (Available on `security-audit` and `dependency-review`).
+* `--deep` — Runs a comprehensive scan across all source files.
+* `--json` — Outputs machine-readable JSON structure instead of Markdown.
 * `--lang <lang>` — Output language locale (`en` or `id`, default: `en`).
-
----
-
-## 🧹 Uninstallation
-
-To safely remove integrated skills and commands from your AI agents:
-
-#### 🔴 Google Antigravity
-```bash
-npx @yammd/forge-skills uninstall --agy
-```
-
-#### 🔴 OpenCode
-```bash
-npx @yammd/forge-skills uninstall --opencode
-```
-
-#### 🔴 Claude Code
-```bash
-npx @yammd/forge-skills uninstall --claude
-```
-
----
-
-## 📊 Sample Output Report
-
-Here is a preview of the report generated by the ForgeSkills CLI when running a security audit:
-
-### 🛡️ Security Audit Report
-**Project:** `my-awesome-app`  
-**Path:** `/path/to/my-awesome-app`  
-**Language:** TypeScript / Express  
-**Date:** 2026-07-07  
-
-#### 📈 Score: 65/100 (Grade: D)
-
-| Severity | Count |
-| :--- | :---: |
-| 🔴 Critical | 1 |
-| 🟠 High | 1 |
-| 🟡 Medium | 0 |
-| 🔵 Low | 0 |
-
-#### 🔴 Critical Findings
-* **Hardcoded API Key** (`src/config/db.ts:12`)
-  * **Description**: Plain-text API key stored directly in the database config file.
-  * **Impact**: Exposes production credentials in source control, allowing unauthorized read/write access.
-  * **Code Evidence**:
-    ```typescript
-    const DB_PASSWORD = "super-secret-password-123";
-    ```
 
 ---
 
@@ -169,18 +111,15 @@ Here is a preview of the report generated by the ForgeSkills CLI when running a 
 We use [Bun](https://bun.sh) for fast development and testing.
 
 ```bash
-# 1. Clone the repository
+# 1. Clone & install
 git clone https://github.com/SiamAlSobari/ForgeSkills.git
 cd ForgeSkills
-
-# 2. Install dependencies
 bun install
 
-# 3. Run test suite
+# 2. Run test suite
 bun test
-bun test:watch
 
-# 4. Perform type checking
+# 3. Check types
 bun run typecheck
 ```
 
@@ -189,4 +128,3 @@ bun run typecheck
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-

@@ -6,7 +6,7 @@ import { createFinding, type Finding, Severity, Confidence, EvidenceType } from 
 export async function scanDebt(root: string): Promise<Finding[]> {
   const findings: Finding[] = [];
 
-  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs"];
+  const codeExtensions = ["ts", "tsx", "js", "jsx", "mjs", "cjs", "py", "go", "java", "php"];
   const globPattern = `**/*.{${codeExtensions.join(",")}}`;
 
   const files = await fg(globPattern, {
@@ -119,6 +119,11 @@ export async function scanDebt(root: string): Promise<Finding[]> {
       { pattern: /function\s*\([^)]*\)\s*\{/g, name: "function expression", use: "arrow function" },
       { pattern: /\.apply\s*\(/g, name: "Function.apply", use: "spread operator" },
       { pattern: /\.call\s*\(/g, name: "Function.call", use: "direct call" },
+      { pattern: /\bprint\s+['"\w]/g, name: "Python 2 style print", use: "print()" },
+      { pattern: /\bxrange\b/g, name: "xrange", use: "range" },
+      { pattern: /\bioutil\b/g, name: "ioutil", use: "io or os package" },
+      { pattern: /\bmysql_connect\b/g, name: "mysql_connect", use: "PDO or mysqli" },
+      { pattern: /\bvar_dump\b/g, name: "var_dump", use: "proper logging" },
     ];
 
     for (const { pattern, name, use } of deprecatedPatterns) {
