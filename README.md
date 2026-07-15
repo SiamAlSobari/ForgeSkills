@@ -65,6 +65,18 @@ npx @yammd/forge-skills install --claude
 > [!NOTE]
 > This command copies the system prompts and configurations into your agent's global config directory. Just restart the agent afterwards!
 
+### For Pi Agent
+
+Install globally as a Pi Package directly from GitHub or local path:
+
+```bash
+# Install globally from GitHub repository
+pi install git:github.com/SiamAlSobari/ForgeSkills
+
+# Or install from local directory
+pi install ./path/to/ForgeSkills
+```
+
 ### 2. Interactive Upgrade & Maintenance
 
 When a new version is released, update your active agents with a single interactive menu:
