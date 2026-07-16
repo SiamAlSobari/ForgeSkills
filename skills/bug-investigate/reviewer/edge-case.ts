@@ -61,6 +61,20 @@ const EDGE_CASE_PATTERNS: EdgeCasePattern[] = [
     description: "Method invocation using -> operator in PHP without null check.",
     recommendation: "Ensure object is not null before invoking methods.",
   },
+  {
+    name: "AI API Call without Catch Block",
+    pattern: /(?:chat\.completions\.create|messages\.create|generateContent)\s*\([^)]*\)\s*(?!\.\s*catch)/g,
+    severity: Severity.High,
+    description: "AI SDK API call without .catch() block or try-catch context. Network timeout or 429 Rate Limits will crash the application.",
+    recommendation: "Ensure the promise has a .catch() handler or is wrapped in a try-catch block.",
+  },
+  {
+    name: "Direct JSON Parsing of LLM Output",
+    pattern: /JSON\.parse\s*\(\s*(?:[a-zA-Z_]\w*(?:\.[a-zA-Z_]\w*)*)*(?:response|content|text)[^)]*\)/gi,
+    severity: Severity.High,
+    description: "Direct JSON parsing of an LLM response variable without structural or schema validation. Can crash if response is malformed.",
+    recommendation: "Use a try-catch block and implement fallback values.",
+  },
 ];
 
 export async function scanEdgeCases(root: string): Promise<Finding[]> {

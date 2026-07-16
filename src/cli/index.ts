@@ -191,4 +191,21 @@ program
     await runReleaseCheck(options);
   });
 
+// AI Audit command
+program
+  .command("ai-audit")
+  .description("Review AI/LLM integrations, prompts, and configurations")
+  .argument("[path]", "Target directory", ".")
+  .option("--quick", "Fast scan", false)
+  .option("--deep", "Thorough scan", false)
+  .option("--markdown", "Output as markdown", true)
+  .option("--json", "Output as JSON", false)
+  .option("--verbose", "Detailed output", false)
+  .option("--lang <lang>", "Output language locale (en, id)", "en")
+  .action(async (path, opts) => {
+    const options = parseOptions({ path, ...opts });
+    const { runAiAudit } = await import("./runner.js");
+    await runAiAudit(options);
+  });
+
 program.parse();

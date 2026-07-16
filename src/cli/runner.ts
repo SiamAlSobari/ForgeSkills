@@ -234,3 +234,23 @@ export async function runReleaseCheck(options: RunOptions) {
   const metadata = createMetadata(root, "Release Check", language.primary.name, frameworks[0]?.name);
   outputReport(findings, metadata, options);
 }
+
+export async function runAiAudit(options: RunOptions) {
+  const root = resolve(options.path || ".");
+  if (!options.json) console.log(`Running AI audit on ${root}...`);
+
+  const { language, frameworks } = await analyzeProject(root);
+
+  const { scanClientConfig } = await import("../../skills/ai-audit/reviewer/client-config.js");
+  const { scanPromptQuality } = await import("../../skills/ai-audit/reviewer/prompt-quality.js");
+  const { scanFallbackSafety } = await import("../../skills/ai-audit/reviewer/fallback-safety.js");
+
+  const findings: Finding[] = [
+    ...(await scanClientConfig(root)),
+    ...(await scanPromptQuality(root)),
+    ...(await scanFallbackSafety(root)),
+  ];
+
+  const metadata = createMetadata(root, "AI Audit", language.primary.name, frameworks[0]?.name);
+  outputReport(findings, metadata, options);
+}

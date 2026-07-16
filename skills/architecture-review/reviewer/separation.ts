@@ -62,6 +62,41 @@ export async function scanSeparation(root: string): Promise<Finding[]> {
           );
         }
       }
+
+      // Check for direct AI SDK import in controller
+      const aiImportPatterns = [
+        /import\s+.*\s+from\s+['"](?:openai|@google\/generative-ai|@anthropic-ai\/sdk)['"]/gi,
+        /require\s*\(\s*['"](?:openai|@google\/generative-ai|@anthropic-ai\/sdk)['"]\s*\)/gi
+      ];
+      for (const pattern of aiImportPatterns) {
+        let match: RegExpExecArray | null;
+        while ((match = pattern.exec(content)) !== null) {
+          const line = content.slice(0, match.index).split("\n").length;
+          const lineStart = content.lastIndexOf("\n", match.index) + 1;
+          const lineEnd = content.indexOf("\n", match.index);
+          const snippet = content.slice(lineStart, lineEnd === -1 ? undefined : lineEnd).trim();
+
+          findings.push(
+            createFinding({
+              title: "Direct AI SDK Import in Controller/Route",
+              description: "Controller imports an AI SDK directly instead of using a decoupled Service layer. This creates tight-coupling to a specific AI provider.",
+              severity: Severity.Medium,
+              confidence: Confidence.High,
+              category: "Separation of Concerns",
+              evidence: [
+                {
+                  type: EvidenceType.CodePattern,
+                  file,
+                  line,
+                  snippet,
+                  description: "Direct AI SDK import in controller",
+                },
+              ],
+              recommendation: "Wrap AI provider configurations and SDK calls in a Service layer (e.g. AiService) to decouple it from controllers.",
+            })
+          );
+        }
+      }
     }
 
     // Check for direct DB access in services
@@ -99,6 +134,39 @@ export async function scanSeparation(root: string): Promise<Finding[]> {
                 },
               ],
               recommendation: "Use repository pattern for data access.",
+            })
+          );
+        }
+      }
+
+      // Check for direct LLM calls without caching
+      const llmCallPattern = /(?:chat\.completions\.create|messages\.create|generateContent)\s*\(/gi;
+      let llmMatch: RegExpExecArray | null;
+      while ((llmMatch = llmCallPattern.exec(content)) !== null) {
+        const hasCache = /cache|redis|memoize|ttl/gi.test(content);
+        if (!hasCache) {
+          const line = content.slice(0, llmMatch.index).split("\n").length;
+          const lineStart = content.lastIndexOf("\n", llmMatch.index) + 1;
+          const lineEnd = content.indexOf("\n", llmMatch.index);
+          const snippet = content.slice(lineStart, lineEnd === -1 ? undefined : lineEnd).trim();
+
+          findings.push(
+            createFinding({
+              title: "Missing AI Response Caching",
+              description: "Service invokes expensive AI model API calls directly without any caching mechanism. Repeated requests with same prompt will cause latency and high cost.",
+              severity: Severity.Medium,
+              confidence: Confidence.Low,
+              category: "Separation of Concerns",
+              evidence: [
+                {
+                  type: EvidenceType.CodePattern,
+                  file,
+                  line,
+                  snippet,
+                  description: "AI API call without caching mechanism",
+                },
+              ],
+              recommendation: "Implement caching (e.g. using Redis or local memory cache) for LLM outputs to speed up response times and save token cost.",
             })
           );
         }

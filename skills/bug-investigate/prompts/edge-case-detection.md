@@ -109,6 +109,16 @@ function connect() {
 }
 ```
 
+### 7. AI/LLM Integration & SDK Usage
+
+```javascript
+// Missing error handling for API calls
+const res = await openai.chat.completions.create({ ... }); // Potential 429 Rate Limit/Timeout crash
+
+// Direct parsing of raw output
+const data = JSON.parse(res.choices[0].message.content); // Crash if response is malformed
+```
+
 ## Output
 
 For each finding:

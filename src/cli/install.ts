@@ -45,6 +45,7 @@ const SKILL_COMMANDS: Record<string, string> = {
   "dependency-review": "Review dependencies - outdated, unused, licenses, supply chain risks",
   "database-review": "Review database usage - queries, indexing, schema, migrations",
   "release-check": "Pre-release checklist - changelog, version, CI/CD, breaking changes",
+  "ai-audit": "Review AI/LLM integrations - client configurations, prompt quality, and fallback safety",
 };
 
 function getInstalledItems(target: string): string[] {

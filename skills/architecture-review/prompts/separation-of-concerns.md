@@ -30,6 +30,19 @@ app.post('/users', async (req, res) => {
   const user = await userService.createUser(req.body);
   res.json(user);
 });
+
+// Bad: direct AI SDK import and instantiation in controller
+import OpenAI from "openai";
+app.post('/ask', async (req, res) => {
+  const openai = new OpenAI();
+  const chat = await openai.chat.completions.create({ ... });
+});
+
+// Good: controller delegates to abstracted AI Service
+app.post('/ask', async (req, res) => {
+  const answer = await aiService.askQuestion(req.body.question);
+  res.json({ answer });
+});
 ```
 
 ## Responsibility Distribution

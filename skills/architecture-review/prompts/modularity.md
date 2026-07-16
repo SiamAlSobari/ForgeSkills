@@ -54,6 +54,16 @@ class UserRepository {
 }
 ```
 
+### AI Provider & Vendor Modularity
+
+```javascript
+// Bad: direct import of concrete OpenAI provider client in user business domain service
+import { OpenAI } from "openai"; // Vendor tight-coupling
+
+// Good: inject abstract AI Service or wrap in custom client module
+import { AiServiceInterface } from "../ai/ai.interface";
+```
+
 ## Circular Dependencies
 
 ```javascript
