@@ -94,8 +94,12 @@ npx @yammd/forge-skills@latest upgrade
 To cleanly remove the skills from your agents:
 
 ```bash
+# For Google Antigravity, OpenCode, Claude Code
 npx @yammd/forge-skills uninstall --agy
 # or --opencode, --claude
+
+# For Pi Agent
+pi uninstall @yammd/forge-skills
 ```
 
 ---
