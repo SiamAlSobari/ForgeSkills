@@ -5,9 +5,19 @@
 [![Bun](https://img.shields.io/badge/Bun-Compatible-black?style=flat-square&logo=bun)](https://bun.sh)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-**ForgeSkills** is a global AI skills ecosystem that empowers AI Coding Agents (such as **Google Antigravity / agy**, **OpenCode**, and **Claude Code**) with specialized software engineering capabilities.
+**ForgeSkills** is a global AI skills ecosystem that empowers AI Coding Agents (such as **Google Antigravity / agy**, **OpenCode**, **Claude Code**, and **Pi Agent**) with specialized software engineering capabilities.
 
-Instead of writing long, repetitive system prompts, **ForgeSkills** equips your AI agents with standardized commands to perform security audits, bug investigations, architecture reviews, performance profiling, database checks, and pre-release audits—all delivered in a consistent reporting format and scoring system.
+### 🌟 Why ForgeSkills?
+While modern AI agents are incredibly powerful at writing code and fixing simple bugs, they often lack a structured, systematic methodology for reviewing and auditing codebases. Developers are forced to write long, repetitive prompts to guide the AI, leading to inconsistent outputs, missed vulnerabilities, and lack of severity standardization.
+
+**ForgeSkills** bridges this gap. It acts as a plug-and-play "brain upgrade" for your AI agents, equipping them with standardized commands, structured prompt instructions, and static scanning patterns. It teaches the agent to think, analyze, and report like a seasoned specialist.
+
+### 💎 Key Features
+* **Standardised Slash Commands** — Run audits directly inside your AI agent's chat interface (e.g., `/forge:security-audit`, `/forge:ai-audit`).
+* **Consistent Scoring & Grading** — Get a clear, severity-weighted score (0-100) and structured Markdown or JSON report for every run.
+* **Stand-alone CLI Tool** — Perform static code audits directly from your local terminal or integrate them into CI/CD pipelines.
+* **Extensible Architecture** — Customize patterns, add languages, and define custom prompts tailored to your team's stack.
+* **Language Agnostic** — Optimized for JavaScript, TypeScript, Python, Go, Java, and PHP.
 
 ---
 
@@ -129,20 +139,7 @@ forge-skills performance-audit ./src/backend --lang id
 
 ## 🛠️ Development & Contribution
 
-We use [Bun](https://bun.sh) for fast development and testing.
-
-```bash
-# 1. Clone & install
-git clone https://github.com/SiamAlSobari/ForgeSkills.git
-cd ForgeSkills
-bun install
-
-# 2. Run test suite
-bun test
-
-# 3. Check types
-bun run typecheck
-```
+If you want to contribute, set up the project locally, run tests, or add custom prompts/skills, please read our [Contributing Guide](docs/contributing.md).
 
 ---
 
