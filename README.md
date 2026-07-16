@@ -21,6 +21,7 @@ ForgeSkills bridges the gap between raw AI code generation and systematic engine
 * 📐 **Software Architects** — evaluating design patterns and SOLID compliance.
 * 📦 **Dependency Analysts** — finding unused packages and supply-chain risks.
 * 🗄️ **Database Administrators** — auditing queries, indexing, and migration issues.
+* 🤖 **AI/LLM Reviewers** — auditing SDK configurations, prompt quality, Socratic tutoring flows, and fallback logic.
 
 ---
 
@@ -37,6 +38,7 @@ Once installed, your AI agent gains access to the following global slash command
 | `/forge:dependency-review` | 📦 Dependency Analyst | Detects outdated packages, unused dependencies, license issues, and supply-chain risks. |
 | `/forge:database-review` | 🗄️ Database Administrator | Audits query execution plans, indexing coverage, database schemas, and migration scripts. |
 | `/forge:release-check` | 📦 Release Manager | Runs full checklists, changelog validation, breaking changes, and CI/CD pipelines readiness. |
+| `/forge:ai-audit` | 🤖 AI/LLM Reviewer | Audits LLM integration configurations, prompt quality, Socratic tutoring pitfalls, and fallback security. |
 
 > [!TIP]
 > **🌐 Language Support**: Optimized for **JavaScript, TypeScript, Python, Go, Java, and PHP**—with extensible pattern definitions to analyze any code repository.
