@@ -1,18 +1,18 @@
 ---
-name: forge:ai-audit
+name: forge-ai-audit
 description: >
   Review AI/LLM integrations - client configurations, prompt quality, and fallback safety.
-  Trigger when user types /forge:ai-audit or requests an AI audit/review.
+  Trigger when user types /forge-ai-audit or requests an AI audit/review.
 ---
 
-# /forge:ai-audit
+# /forge-ai-audit
 
 Review AI/LLM integrations, prompts, and configurations using AI reasoning.
 
 ## Command
 
 ```
-/forge:ai-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge-ai-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options

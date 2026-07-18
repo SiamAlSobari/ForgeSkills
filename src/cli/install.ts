@@ -80,7 +80,7 @@ export function runInstall(options: InstallOptions): void {
     console.log(`✅ Skills installed successfully!\n`);
     console.log(`Installed skills:`);
     for (const skill of installed) {
-      console.log(`  • /forge:${skill}`);
+      console.log(`  • /forge-${skill}`);
     }
 
     console.log(`\n📌 Next steps:`);

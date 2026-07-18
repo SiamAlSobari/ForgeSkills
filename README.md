@@ -13,7 +13,7 @@ While modern AI agents are incredibly powerful at writing code and fixing simple
 **ForgeSkills** bridges this gap. It acts as a plug-and-play "brain upgrade" for your AI agents, equipping them with standardized commands, structured prompt instructions, and static scanning patterns. It teaches the agent to think, analyze, and report like a seasoned specialist.
 
 ### 💎 Key Features
-* **Standardised Slash Commands** — Run audits directly inside your AI agent's chat interface (e.g., `/forge:security-audit`, `/forge:ai-audit`).
+* **Standardised Slash Commands** — Run audits directly inside your AI agent's chat interface (e.g., `/forge-security-audit`, `/forge-ai-audit`).
 * **Consistent Scoring & Grading** — Get a clear, severity-weighted score (0-100) and structured Markdown or JSON report for every run.
 * **Stand-alone CLI Tool** — Perform static code audits directly from your local terminal or integrate them into CI/CD pipelines.
 * **Extensible Architecture** — Customize patterns, add languages, and define custom prompts tailored to your team's stack.
@@ -41,14 +41,14 @@ Once installed, your AI agent gains access to the following global slash command
 
 | Command | Specialist Role | Purpose & Scope |
 | :--- | :--- | :--- |
-| `/forge:security-audit` | 🛡️ Security Engineer | Scans for secrets, injection vulnerabilities (SQL, XSS, CSRF, SSRF, RCE), and unsafe configurations. |
-| `/forge:bug-investigate` | 🔍 Debug Specialist | Analyzes error logs, function execution paths, root causes, panics, and edge cases. |
-| `/forge:performance-audit` | ⚡ Performance Engineer | Audits N+1 query patterns, memory leaks, inefficient algorithms, caching, and CPU/IO bottlenecks. |
-| `/forge:architecture-review` | 📐 Software Architect | Evaluates design patterns, modularity, SOLID principles, and identifies technical debt. |
-| `/forge:dependency-review` | 📦 Dependency Analyst | Detects outdated packages, unused dependencies, license issues, and supply-chain risks. |
-| `/forge:database-review` | 🗄️ Database Administrator | Audits query execution plans, indexing coverage, database schemas, and migration scripts. |
-| `/forge:release-check` | 📦 Release Manager | Runs full checklists, changelog validation, breaking changes, and CI/CD pipelines readiness. |
-| `/forge:ai-audit` | 🤖 AI/LLM Reviewer | Audits LLM integration configurations, prompt quality, Socratic tutoring pitfalls, and fallback security. |
+| `/forge-security-audit` | 🛡️ Security Engineer | Scans for secrets, injection vulnerabilities (SQL, XSS, CSRF, SSRF, RCE), and unsafe configurations. |
+| `/forge-bug-investigate` | 🔍 Debug Specialist | Analyzes error logs, function execution paths, root causes, panics, and edge cases. |
+| `/forge-performance-audit` | ⚡ Performance Engineer | Audits N+1 query patterns, memory leaks, inefficient algorithms, caching, and CPU/IO bottlenecks. |
+| `/forge-architecture-review` | 📐 Software Architect | Evaluates design patterns, modularity, SOLID principles, and identifies technical debt. |
+| `/forge-dependency-review` | 📦 Dependency Analyst | Detects outdated packages, unused dependencies, license issues, and supply-chain risks. |
+| `/forge-database-review` | 🗄️ Database Administrator | Audits query execution plans, indexing coverage, database schemas, and migration scripts. |
+| `/forge-release-check` | 📦 Release Manager | Runs full checklists, changelog validation, breaking changes, and CI/CD pipelines readiness. |
+| `/forge-ai-audit` | 🤖 AI/LLM Reviewer | Audits LLM integration configurations, prompt quality, Socratic tutoring pitfalls, and fallback security. |
 
 > [!TIP]
 > **🌐 Language Support**: Optimized for **JavaScript, TypeScript, Python, Go, Java, and PHP**—with extensible pattern definitions to analyze any code repository.

@@ -1,18 +1,18 @@
 ---
-name: forge:security-audit
+name: forge-security-audit
 description: >
   Security review of source code - detect vulnerabilities (SQL injection, XSS, CSRF, SSRF, RCE), secrets, config issues.
-  Trigger when user types /forge:security-audit or requests a security audit/review.
+  Trigger when user types /forge-security-audit or requests a security audit/review.
 ---
 
-# /forge:security-audit
+# /forge-security-audit
 
 Security review of source code using AI reasoning.
 
 ## Command
 
 ```
-/forge:security-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
+/forge-security-audit [path] [--quick|--deep] [--markdown|--json] [--verbose]
 ```
 
 ### Options
