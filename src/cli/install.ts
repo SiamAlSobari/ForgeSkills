@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, cpSync, writeFileSync, readdirSync, rmSync } from "fs";
+import { existsSync, mkdirSync, cpSync, writeFileSync, readFileSync, readdirSync, rmSync } from "fs";
 import { join, resolve } from "path";
 import { homedir } from "os";
 
@@ -55,6 +55,22 @@ function getInstalledItems(target: string): string[] {
     .map((e) => e.name);
 }
 
+function rewriteToColon(target: string, skills: string[]): void {
+  for (const skill of skills) {
+    const skillMdPath = join(target, "skills", skill, "SKILL.md");
+    if (existsSync(skillMdPath)) {
+      let content = readFileSync(skillMdPath, "utf8");
+      
+      content = content.replace(/name:\s*forge-([a-z0-9-]+)/g, "name: forge:$1");
+      content = content.replace(/Trigger when user types \/forge-([a-z0-9-]+)/g, "Trigger when user types /forge:$1");
+      content = content.replace(/# \/forge-([a-z0-9-]+)/g, "# /forge:$1");
+      content = content.replace(/\/forge-([a-z0-9-]+)/g, "/forge:$1");
+
+      writeFileSync(skillMdPath, content, "utf8");
+    }
+  }
+}
+
 export function runInstall(options: InstallOptions): void {
   const agent = options.agent || "opencode";
   const targetBase = getTargetBase(agent, options.path);
@@ -77,10 +93,13 @@ export function runInstall(options: InstallOptions): void {
       Object.keys(SKILL_COMMANDS).includes(skill)
     );
 
+    // Rewrite to colon in target installation path (hybrid solution)
+    rewriteToColon(targetBase, installed);
+
     console.log(`✅ Skills installed successfully!\n`);
     console.log(`Installed skills:`);
     for (const skill of installed) {
-      console.log(`  • /forge-${skill}`);
+      console.log(`  • /forge:${skill}`);
     }
 
     console.log(`\n📌 Next steps:`);

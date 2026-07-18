@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { existsSync, mkdirSync, rmSync } from "fs";
+import { existsSync, mkdirSync, rmSync, readFileSync } from "fs";
 import { join } from "path";
 import { tmpdir } from "os";
 import { runInstall, runUninstall } from "../../src/cli/install";
@@ -14,9 +14,11 @@ describe("Integration: Install and Uninstall", () => {
     // Run install
     runInstall({ agent: "opencode", path: tempBase });
 
-    // Check if skills were created
+    // Check if skills were created and name was rewritten to colon (hybrid solution)
     expect(existsSync(join(tempBase, "skills"))).toBe(true);
     expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(true);
+    const skillContent = readFileSync(join(tempBase, "skills", "security-audit", "SKILL.md"), "utf8");
+    expect(skillContent).toContain("name: forge:security-audit");
     expect(existsSync(join(tempBase, "commands"))).toBe(false);
 
     // Run uninstall
@@ -36,9 +38,11 @@ describe("Integration: Install and Uninstall", () => {
     // Run install
     runInstall({ agent: "claude", path: tempBase });
 
-    // Check if skills were created
+    // Check if skills were created and name was rewritten to colon (hybrid solution)
     expect(existsSync(join(tempBase, "skills"))).toBe(true);
     expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(true);
+    const skillContent = readFileSync(join(tempBase, "skills", "security-audit", "SKILL.md"), "utf8");
+    expect(skillContent).toContain("name: forge:security-audit");
     // commands folder should not be created for claude
     expect(existsSync(join(tempBase, "commands"))).toBe(false);
 
@@ -59,9 +63,11 @@ describe("Integration: Install and Uninstall", () => {
     // Run install
     runInstall({ agent: "antigravity", path: tempBase });
 
-    // Check if skills were created
+    // Check if skills were created and name was rewritten to colon (hybrid solution)
     expect(existsSync(join(tempBase, "skills"))).toBe(true);
     expect(existsSync(join(tempBase, "skills", "security-audit"))).toBe(true);
+    const skillContent = readFileSync(join(tempBase, "skills", "security-audit", "SKILL.md"), "utf8");
+    expect(skillContent).toContain("name: forge:security-audit");
     expect(existsSync(join(tempBase, "commands"))).toBe(false);
 
     // Run uninstall
